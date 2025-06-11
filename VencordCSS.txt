@@ -1,0 +1,510 @@
+/* Variable listings for the colors I use */
+:root{                         /* These mostly represent the 3 major rings of colors */
+  --borderColor:#292b43;     /* Outermost */
+  --sidebarColor:#191a28;    /* Middle    */
+  --bodyColor:#11111b;       /* Innermost */
+  --messageHoverBackgroundColor:#22202f75;
+  --messageHoverBorderColor:firebrick;
+  --chatBarColor:#1d1a2d;
+  --chatBarAccentColor:#550e0e;
+  --newMessageBannerColor:firebrick;
+  /* Text Channels */
+  --textChannelColor:red;
+  --textChannelWithThreadsColor:red;
+  --threadIdentifierContent:"*";
+  --threadIdentifierFontSize:18px;
+  /* Voice Channels */
+  --voiceChannelColor:#297ddd;
+  /* Other Channels & Settings */
+  --mutedChannelIconOpacity:40%;        /* Muted Channel Icon Opacity */
+  --announcementsChannelColor:yellow; /* Announcements */
+  --forumChannelColor:#ffa600;        /* Forums */
+  --rulesChannelColor:darkturquoise;  /* Rules */
+  --stageChannelColor:#d113eb;        /* Stage */
+  /* currently disabled - for server management channels */
+  --eventChannelColor:gray;           /* Event */
+  --channelsAndRolesColor:gray;       /* Channels & Roles */
+  --membersChannelColor:gray;         /* Members */
+  --serverGuideChannel:gray;          /* Server Guide */
+  /* Server Folders */
+  --folderBackgroundColor:#535787e0;
+  --folderExpandedListBackgroundColor:#53578767;
+  /* These relate to various aspects of comment Replies */
+  --commentPersonalReplyReferenceSplineColor:goldenrod;
+  --commentReplyReferenceSplineColor:#dc143ccb;
+  --commentReplyClickGlowColor:#b2222244;
+  }
+
+
+/* --------------- No Pointer (pointer-events:none) --------------- */
+div[class*=clickTrapContainer]:has(section[aria-label*="Expression Picker"]){pointer-events:none} /* Click-trap for emote menu */
+div[class*=clickTrapContainer]:has(div[aria-label*="Inbox"]){pointer-events:none} /* Click-trap for Inbox menu */
+/* --------------- HIDDEN (visibility:hidden) --------------- */
+div[class*=footer] div[class*=gradient]{visibility:hidden} /* Removes the slight gradient at the bottom of your server list */
+/* --------------- REMOVALS (display:none) --------------- */
+/* Misc */
+div[class*=hoverBarButton][aria-label*="Click to"], div[class*=buttonsInner] div[class*=separator], /* Removes the 3 suggested emotes from the quick-menu when hovering comments */
+ul[aria-label="Direct Messages"] div[class*=container]:has([aria-label*=Activity]), /* Resolve Mod 2factor banner size reducer*/
+ul[aria-label*="Direct Messages"] div[class*=sectionDiv], /* The section dividers for things that we've already deleted */
+/* Member's list */
+div[role=list][aria-label*=Members] > h3:has(div[class*=toggleExpand]),
+div[class*=container] > aside div[role=listitem]:has(div[class*=openOnHover]), /* Member's list Activities themselves */
+/* top bar */
+div[class*=trail] a:has([aria-label="Help"]), /* F1 help button */
+div[role="button"][aria-label="Start Video Call"], /* video call button */
+/* message bar */
+#app-mount button[aria-label="Send a gift"], /* nitro gift button */
+#app-mount div[class*="threadSuggestionBar"], /* thread creator tip */
+#app-mount div[class*="channelAppLauncher"], /* Bottom right app button */
+/* right-click messages */
+#message div[class^="wrapper"],
+#message-tts, /* TTS button */
+#message-add-reaction-0, /* regular reaction button */
+#message-add-reaction-1, /* super reaction button */
+#message-mark-unread, /* mark a comment unread button */
+/* right-click user */
+#user-context-apps,
+#user-context-call, /* call */
+#user-context-note, /* note */
+/* #user-context-add-friend-nickname,  add friend nickname */
+#user-context-add-friend, /* add friend  */
+#user-context-remove-friend, /* remove friend */
+div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM button */
+#user-context-invite-to-server{display:none} /* invite to server */
+
+/* ------------- GENERAL THEMING (edited from a basic template) ------------- */
+.theme-dark, .theme-light{
+    --theme-base-color-amount: 50%;
+    --theme-text-color-amount: 10%;
+    /* Base theme overwrite */
+    --text-link:var(--dnome-accent-soft);
+    --background-secondary:var(--bodyColor);
+    --background-secondary-alt:#22202f;
+    /* --background-tertiary:var(--borderColor); OLD - Affects the top bar border and some other minor colors */
+    --bg-base-tertiary:var(--borderColor)!important; /* Affects the top bar border and some other minor colors */
+    --background-accent:#9141ac;
+    --background-floating:#22202f;
+    --background-mobile-primary:#22202f;
+    --background-mobile-secondary:#22202f;
+    --background-modifier-selected:var(--borderColor); /* original #22202f */
+    --background-modifier-accent:#22202f;
+    --background-message-hover:var(--messageHoverBackgroundColor); /* I changed this */
+    --background-help-info:rgba(145, 65, 172, 0.1);
+    --scrollbar-thin-thumb:#a7a5ad;
+    --scrollbar-thin-track:transparent;
+    --scrollbar-auto-thumb:#a7a5ad;
+    --scrollbar-auto-scrollbar-color-thumb:#a7a5ad;
+    --scrollbar-auto-scrollbar-color-track:#22202f;
+    --channeltextarea-background:#22202f;
+    --logo-primary:#9141ac;
+    --focus-primary:#9141ac;
+    --activity-card-background:#22202f;
+    --textbox-markdown-syntax:#9141ac;
+    --radio-group-dot-foreground:#9141ac;
+    --search-popout-option-fade:#00000000;
+    --search-popout-option-fade-hover:#00000000;
+    --input-background:#22202f;
+    --brand-experiment-05a:rgba(145, 65, 172, 0.05);
+    --profile-body-background-color:var(--dnome-list-item-hover);
+    --brand-experiment-560:#9141ac;
+    --brand-experiment:#9141ac;
+    --control-brand-foreground:#9141ac;
+    --deprecated-card-bg:#22202f;
+    --bg-overlay-2:var(--background-primary);
+    --__header-bar-background:var(--bg-overlay-2);
+    --home-background:var(--bg-overlay-2);
+    --dnome-base:#22202f;
+    --dnome-bg:#22202f;
+    --dnome-sidebar:#22202f;
+    --dnome-accent:#9141ac;
+    --dnome-accent-lighter:#a95ec2;
+    --dnome-darker-accent:#723387;
+    --dnome-error:#c01c28;
+    --dnome-error-soft:rgba(192, 28, 40, 0.2);
+    --dnome-accent-soft:#006eff; /* link & embed text color orig -> #9c54b4 */
+    --dnome-searchbox:#22202f;
+    --dnome-border-big:12px;
+    --dnome-border-medium:8px;
+    --dnome-border-small:6px    
+}
+.theme-dark{
+/*    --text-normal:#ffffff; normal text color */
+    --background-modifier-hover:var(--folderExpandedListBackgroundColor); /* original #454150 */
+    --background-mentioned:rgba(255, 120, 0, 0.05);
+    --background-mentioned-hover:rgba(255, 120, 0, 0.08);
+    --background-help-warning:rgba(255, 120, 0, 0.1);
+    --scrollbar-auto-track:#22202f;
+    --profile-body-divider-color:#463d60;
+    --profile-message-input-border-color:#463d60;
+    --dnome-border:#463d60;
+    --dnome-scroll-bg:#22202f;
+    --dnome-list-item-hover:#454150;
+    --dnome-list-item-hover-selected:#504c5a;
+    --dnome-list-item-selected:#5b5765;
+    --dnome-popup-hover:#3a3546;
+    --dnome-popup-selected:#454150;
+}
+/* ---------------------- MY General Theming ---------------------- */
+/* Right Click context menu line separators */
+div[class*=clickTrap] div[aria-label*=Actions] div[role=separator]{border-bottom:1px solid var(--borderColor)}
+/* App corner buttons */
+div[class*=ButtonClose]{color:#dddddd}
+/*
+div[class*=ButtonMinMax][aria-label*=Max]{color:orange}
+div[class*=ButtonMinMax][aria-label*=Min]{color:blue}
+*/
+/* User Profiles */
+/* About Me Section */
+div[class*=overlay]:has(section){background-color:var(--sidebarColor);}
+/* Reply, jumpToPresent & newMessage bar */
+div[class*=replyBar], div[class*=jumpToPresentBar]{background-color:var(--chatBarAccentColor)!important}
+div[class*=jumpToPresentBar]{margin-right:10px!important;flex-flow:column;opacity:90%!important}
+div[class*=jumpToPresentBar] button{background-color:transparent!important;border:none!important}
+div[class*=newMessagesBar]{background-color:var(--newMessageBannerColor)}
+/* Reply Arrow */
+div[id*="message-reply-context"][class^="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
+/* Main Background */
+/* section[aria-label="Channel header"]{border:none!important} top bar border -- should I get rid of it?*/
+[class*=membersWrap] > div[class*=members]{background-color:var(--bodyColor)} /* Members List itself */
+[class*=membersWrap] > div[class*=members] div[class*=member]{background:transparent!important} /* Member listings - transparent background */
+section[aria-label*=header], div[data-list-id*=private-channels], div[class*=searchBar]:has(button), nav[class*=container]{background-color:var(--sidebarColor)!important}
+div[class*=standardSidebarView] div[class*=contentRegion]{background:var(--sidebarColor)}
+div[aria-label*=Inbox] div[class*=messageContainer]{background-color:var(--sidebarColor)} /* Background for comments inside your inbox */
+div[class*=container] div[class*=emptyChannelIcon]{background-color:var(--borderColor)} /* "empty channel" icon color */
+div[class*=divider][role*=separator] span[class*=content]{background-color:var(--bodyColor)} /* Date separator for blocks of messages */
+foreignObject > div > div{background:var(--folderBackgroundColor)}
+span[class*=expandedFolderBackground]{background:var(--folderExpandedListBackgroundColor)}
+div[class*=children]:after{display:none!important}
+/* --- Body Color for a ton of listings */
+div[class*=messagesWrapper] div:has(div[class*=reactButtons]),
+main[class*=chatContent], main[class*=container][aria-label*=Friends],
+div[class*=loadingCard], div[data-list-id*=forum-channel-list],
+div[data-list-id*=forum-channel-list] div[class*=container],
+div[class*=lock-screen-container],
+div[class*=nowPlayingColumn] > aside{background:var(--bodyColor)!important}
+/* Forums */
+div[class*=headerWithMatchingPosts], div[class*=matchingPostsRow], div[class*=mainCard]{background:transparent!important;border:0px transparent;}
+div[data-list-id*=forum-channel-list] div[class*=container]{border: 2px solid #53578767;border-radius: 20px;border-right-style:dashed;border-left-style:dashed;}
+/* Server Icons */
+div[aria-label*=Servers] > div > div > div:hover:not([class*=selected]){scale:115%!important;transition-property:scale;transition-duration:.2s}
+div[aria-label*=Servers] div[class*=selected]{scale:115%}
+div[class*=isExpanded] ul > div:nth-child(1) > div > div[class*=selected]:not([class*=item]){padding-top:4px} /* Prevent image clipping (minor fudging going on here) */
+/* Server Icons -> Voice Connected icon */
+/* div[class*=listItem] div:has(div[class*=upperBadge]) div[class*=upperBadge] div:not([class*=isCurrentUser]){background-color:var(--voiceChannelColor);border-radius:7px;scale:110%} /* you just left the voice call color */
+/* div[class*=listItem] div:has(div[class*=upperBadge]) div[class*=upperBadge] div[class*=isCurrentUser]{background-color:#23a55a;border-radius:7px;scale:110%} /* you're connected color - default #23a55a */
+/* Message bar */
+div[class*="scrollableContainer"]:has(div[class*=textArea]){background-color:var(--chatBarColor)}
+/* Bottom-left user profile background color */
+div[class*=avatar]:not([class*=userAvatar]){background:transparent}
+div[class*=actionButtons] button{background:#5357878a!important}
+button:has(div[class*=rtcConnectionStatusConnected]){scale: 100%!important} /* keep Voice Connected 100% scaled */
+/* Message:hover background color */
+div[class*=message][aria-roledescription*=Message]:hover{background-color:var(--messageHoverBackgroundColor)}
+/* Makes clicked reply links more obvious */
+div[data-flash=true]{background:var(--commentReplyClickGlowColor)!important;transition-duration:.2s!important;transition-property:all!important;border-bottom-left-radius:20px;border-top-left-radius:20px}
+div[data-flash=false]{transition-duration:3s!important;transition-property:all!important;}
+/* DM channel theme */
+div[class*=interactive]:hover{background-color:#53578767;}
+div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
+/* Text Channels */
+#channels div[class^="iconContainer"][aria-label*="Text"] svg, #channels div[class^="iconContainer"][aria-label="Text (Limited)"] svg svg{color:var(--textChannelColor)}
+#channels div[class^="iconContainer"][aria-label*="Text (Active Threads)"] svg{color:var(--textChannelWithThreadsColor);}
+#channels div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:before
+{
+  content:var(--threadIdentifierContent);
+  margin-left: 0px;
+  top: -5px;
+  left: 17px; /* left: -3px; */
+  visibility: visible;
+  position:absolute;
+  color:var(--textChannelWithThreadsColor);
+  font-size:var(--threadIdentifierFontSize);
+  min-width: 100px;
+  font-weight:bold;
+}
+#channels div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:has(path + path):before{left:-3px} /* Move the thread indicator so that it doesn't bunch up with the Locked icon */
+/* Voice Channels */
+#channels div[class*="iconContainer"][aria-label*="Voice"] svg{color:var(--voiceChannelColor)}
+#channels div[class*="iconContainer"][aria-label*="Voice (Locked)"] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity);}
+.vc-uvs-speaker{color:var(--voiceChannelColor);margin-right:1px;margin-left:1px}
+/* Other Channels & Channel Settings */
+div[class*=iconSizeMini]{border-radius:100%!important} /* Servers in folders are circles again -- default: border-radius: 13px 4px 4px */
+div[class*=iconSizeMini] div[class*=acronym]{position:relative;top:-1px}
+/* this will make it so server icons in folders are Blobby instead of Circles
+div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(1){border-radius: 13px 4px 4px!important}
+div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(2){border-radius: 4px 13px 4px 4px!important}
+div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(3){border-radius: 4px 4px 4px 13px!important}
+div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(4){border-radius: 4px 4px 13px!important}
+*/
+#channels div[class*=modeMuted] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity)}
+div[class*=selectedChannel] div[class*="iconContainer"] svg, div[class*=selectedChannel] div[class*="iconContainer"]:before{opacity:100%!important}
+#channels div[class*=modeMuted] div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:before{opacity:var(--mutedChannelIconOpacity)}
+#channels div[class^="iconContainer"][aria-label^="Announcements"] svg, #channels div[class^="iconContainer"][aria-label="Announcements (Limited)"] svg{color:var(--announcementsChannelColor)}
+#channels div[class^="iconContainer"][aria-label^="Forum"] svg, #channels div[class^="iconContainer"][aria-label="Forum (Limited)"] svg{color:var(--forumChannelColor)}
+#channels div[class^="iconContainer"][aria-label^="Rules"] svg{color:var(--rulesChannelColor)}
+#channels div[class^="iconContainer"][aria-label^="Stage"] svg, #channels div[class*="iconContainer"][aria-label*="Stage (Limited)"] svg path{color:var(--stageChannelColor)}
+/* Server management channels
+#channels div:has(div[aria-label*=Events]) svg{color:var(--eventChannelColor)}
+#channels div:has(div[aria-label*=Channels]) svg{color:var(--channelsAndRolesColor)}
+#channels div:has(div[aria-label*=Members]) svg{color:var(--membersChannelColor)}
+#channels div:has(div[aria-label*=Server]) svg{color:var(--serverGuideChannel)}
+*/
+/* ----------- Misc ----------- */
+#app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
+#app-mount div[class^="chat-"]{background-color: rgb(16, 3, 38);} /* thread chat background color */
+#app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
+[class^="result"]:hover[aria-selected="true"][id^="quick-switcher"]{background-color: #dc143c98;color: gray!important;} /* ctrl-k hover color */
+[class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div, [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div svg{font-weight:bolder;color: white!important;}
+div[class*=hoverBarButton]{background-color: crimson;color: black!important} /* comment hover buttons */
+div[class*=hoverBarButton]:hover, div[class^="button"] div div[aria-expanded="true"]{background-color: rgb(151, 12, 40)!important;color: white!important;} /* comment hover buttons -- clicked */
+div[class^="attachedBars"] div div div div{background: rgb(132, 12, 36)!important;color: white!important;} /* reply bar */
+div[class*="replying"][class*="message"]{background: #840c2445!important;color: white;} /* reply colors */
+div[class*="replying"][class*="message"]:before{background-color:firebrick;width:5px;} /* reply :before colors */
+div[class*="appAsidePanelWrapper-"] > div[class*="notAppAsidePanel"] > div > div > section{background: transparent!important;}
+section[role="dialog"][class^="contentWrapper-"]{background-color: rgb(36, 31, 49)!important;} /* message user colors */
+#user-context-message-user{background-color:transparent!important;color:rgba(0, 255, 132, 0.74)!important;font-weight: bolder;text-transform:uppercase!important;text-align:center;}
+#user-context-message-user:hover{background-color:rgba(0, 255, 132, 0.587)!important;color: white!important;font-weight: bolder;text-transform:uppercase!important;text-align:center;}
+#message-reply{background-color:transparent;color: #006eff;font-weight:bolder;text-transform:uppercase;text-align:center;} /* comment right-click reply button color */
+#message-reply:hover{background-color: #006eff;color:white}
+#message-delete{text-align:center;}
+#user-context-mention{background-color:transparent;color:#006eff;font-weight:bolder;text-transform:uppercase;text-align:center;} /* message mention */
+#user-context-mention:hover{background-color: #006effa4;color:white}
+#message-edit{background-color:transparent;color:rgb(240, 64, 0);fill:rgb(240, 64, 0)!important;font-weight: bolder;text-transform:uppercase!important;text-align:center} /* message edit */
+#message-edit:hover{background-color:rgba(250, 67, 0, 0.621);color: white;fill:white}
+#user-context-mod-view{background-color:rgb(118, 0, 228);color: white;font-weight:bolder;text-transform:uppercase!important;text-align:center;} /* mod view */
+#user-context-mod-view:hover{background-color:rgb(99, 0, 192);color: white}
+button[aria-label*="Mod View"]{transition: box-shadow .125s ease-out;color: white;background-color: rgb(118, 0, 228);box-shadow: 1px 0 15px 1px black} /* mod view profile button */
+button[aria-label*="Mod View"]:hover{transition: box-shadow .125s ease-out;color: white;background-color:rgb(118, 0, 228);box-shadow: 0 0 15px 1px rgb(255, 255, 255)}
+div[id*="copy-id"]:nth-child(1){color: rgb(255, 221, 0);text-align: center;} /* copy User ID button */
+div[id*="copy-id"]:nth-child(1):hover,div[id*="copy-id"]:hover path{background: rgb(255, 221, 0);color:black;fill:black;font-weight:bolder}
+div[id*="copy-id"]:nth-child(2){color: rgb(255, 170, 0);text-align: center;} /* copy Channel ID button */
+div[id*="copy-id"]:nth-child(2):hover,div[id*="copy-id"]:hover path{background: rgb(255, 170, 0);color:black;fill:black;font-weight:bolder}
+div[id*="textarea-context-correction"]{background: rgba(220, 20, 60, 0.628)!important;color: white!important;font-weight:bolder!important;}
+div[id*="textarea-context-correction"]:hover{background: crimson!important;font-weight:600!important;}
+#app-mount button[aria-label^="Send Message"]:disabled div, #app-mount button[aria-label^="Send Message"]:disabled svg{background:transparent!important;color: gray!important;} /* Message Send Button DISABLED */
+#app-mount button[aria-label^="Send Message"] svg{background-color:transparent!important;color: firebrick!important;} /* Message Send Button ENABLED */
+#app-mount button[aria-label^="Send Message"]:hover:enabled svg{color: red!important} /* Message Send Button ENABLED-HOVER */
+div[id*=delete]{background:rgba(178, 34, 34, 0.438)!important;border:2px dashed white;text-align:center;border-radius:15px;border-top-style:solid;border-bottom-style:solid}
+div[id*=delete] > div{color: white!important}
+div[id*=delete]:hover{background:rgba(178, 34, 34, 0.801)!important;color:white!important;border: 2px dashed white;text-align:center;border-radius:15px;border-top-style:solid;border-bottom-style:solid;}
+/* message:hover left-side border */
+li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
+{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    width: 4px;
+    background:var(--messageHoverBorderColor)!important;
+}
+
+/* --------------------- Fixes / Changes --------------------- */
+/*  */
+/* Read All button no longer clipped off */
+nav[aria-label*=sidebar]{margin-bottom:0px!important}
+/* Revert User-panel to PRE -March 25th 2025- theme */
+nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
+nav[aria-label="Private channels"]{background-color:var(--sidebarColor)!important}
+section[aria-label*=User]{border:none!important;width:80%!important;right:0;left:70px!important;border-radius:0!important;background-color:var(--sidebarColor)!important}
+section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2}
+div[class*=sidebar]:after{display:none!important;visibility:hidden!important;}
+/* User Settings: Make some sidebar options more iconic */
+div[class*=sidebarRegion]{background-color:var(--bodyColor)!important}
+div[aria-label*=Settings] div[aria-label*=Voice], div[aria-label*=Settings] div[aria-label*=Appearance], div[aria-label*=Settings] div[data-tab-id*=Plugins]{color:#6982d6!important}
+div[aria-label*=Settings] div[aria-label*=Voice]:hover, div[aria-label*=Settings] div[aria-label*=Appearance]:hover, div[aria-label*=Settings] div[data-tab-id*=Plugins]:hover{color:#436fff!important}
+/* div[aria-label*=Settings] div[aria-label*=Voice]:before, div[aria-label*=Settings] div[aria-label*=Appearance]:before, div[aria-label*=Settings] div[data-tab-id*=Plugins]:before{color:#6982d6;content: "►";position: absolute;left: -10px;width:100px!important;height: 100px!important} */
+/* Make codeblocks do Word Wrap */
+div[class*=textContainer] code{text-wrap:pretty}
+/* VC viewer now mentions that clicking will take you to the channel, not join it */
+div[class*=tooltip-content]:has([class="vc-uvs-name"]):before{content:"Click to VIEW channel";text-align:center;color:var(--voiceChannelColor)}
+/* fill Mod View border radius gap  */
+div[class*=sidebarCont] div[class*=profile] div[class*=inner]{border-radius:0px}
+/* Fix emote picker having a huge vison blocker */
+section[aria-label*="Expression Picker"]{background:none!important}
+#emoji-picker-tab-panel > div >div{background: var(--bodyColor)!important;}
+#emoji-picker-tab-panel > div > div div[class*=header], #emoji-picker-tab-panel > div > div[class*=bodyWrapper]{background: var(--sidebarColor)!important;border-bottom-left-radius:20px;border-top-left-radius:20px}
+/* "New Unreads" button */
+div[class*=bar]:has(svg[class*=unreadIcon])[role=button]{border:2px ridge rgba(255, 0, 0, 0.418);}
+/* discord streams now fullscreen */
+div[class*=videoFrame]{top:0px!important}
+#app-mount div[class*="videoWrapper"]{min-width:100%;max-height:100vh;background:black}
+#app-mount div[class*="actionRow"] button[aria-label*="Hide Members"]{visibility:hidden}
+div[class*=participantsWrapper]{display:none;}
+/* Make the 'internet lost' menu NOT hide your screen */div[class*=buttonsInner]{background:firebrick!important;}
+div[style*=connecting-container]:has(div[class*=content]){z-index:1;height:200px;width:200px;align-items:baseline;align-self:center;margin:auto;opacity:50%;pointer-events:none}
+div[class*=content] video[class*=spinner]{scale:200%}
+div[data-fade=false]{background:none}
+div[data-fade=false] div {color: red!important;visibility: hidden}
+/* Typing Plugin is now smaller */
+.vc-typing-indicator{flex-flow:column-reverse;position:relative;right:-5px;line-height:23px;padding-left:0px!important}
+svg g circle{scale:80%}
+/* fix buttons having bad backgrounds */
+div[class^="buttonContainer"] div div{background: transparent;}
+/* This makes Typing channels have some background color a[class*=link]:has(div[class*=typing]):before{background: rgba(175, 29, 29, 0.048);border-radius: 3px;}
+*/
+/* Server Counter  */
+#vc-guildcount{color:#006eff!important;font-size: 20px!important;margin:-5px;margin-left: 20px;text-align: left!important;word-spacing:40px;text-wrap:nowrap!important}
+/* Server Perm custom banner  plugin changes */
+span[data-tag~=owner]:not([class*=botTagCozy]){color: white;background:#9f1def}
+span[data-tag~=admin]:not([class*=botTagCozy]){color: white;background:#ff7300d7}
+span[data-tag~=staff]:not([class*=botTagCozy]){visibility:hidden;margin-left:-50px;}
+span:has(span[data-tag~=staff][class*=botTagCompact]):before
+{
+  content:"Server Mod";
+  margin-left: 4px;
+  visibility: visible;
+  position:relative;
+  color: white;
+  background:rgba(46, 204, 112, 0.733);
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+span[data-tag^="mod"]:not([class*=botTagCozy]){visibility:hidden;margin-left: -40px}
+span:has(span[data-tag^="mod"][class*=botTagCompact]):before
+{
+  content:"Chat Mod";
+  margin-left: 4px;
+  visibility: visible;
+  position:relative;
+  color: white;
+  background:firebrick;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+span[data-tag~=vc]:not([class*=botTagCozy]){visibility: hidden;margin-left: -63px;}
+span:has(span[data-tag~=vc][class*=botTagCompact]):before
+{
+  content:"VC MOD";
+  margin-left: 4px;
+  visibility: visible;
+  position:relative;
+  color: rgb(63, 179, 179);
+  background:#354946;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+/* Cozy */
+span[data-tag~=owner]:is([class*=botTagCozy]){visibility: hidden; margin-left: -50px;}
+span:has(span[data-tag~=owner][class*=botTagCozy]):after
+{
+  content:"OWNER";
+  visibility: visible;
+  position:relative;
+  color: white;
+  background:#9f1def;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  margin-left: 6px;
+  margin-right: -2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+span[data-tag~=admin]:is([class*=botTagCozy]){color: white;background:#ff7300d7;visibility: hidden;margin-left: -50px;}
+span:has(span[data-tag~=admin][class*=botTagCozy]):after
+{
+  content:"ADMIN";
+  visibility: visible;
+  position:relative;
+  color: white;
+  background:#ff7300d7;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  margin-left: 6px;
+  margin-right: -2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+span[data-tag~=staff]:is([class*=botTagCozy]){visibility:hidden;margin-left:-45px;}
+span:has(span[data-tag~=staff][class*=botTagCozy]):after
+{
+  content:"Server Mod";
+  visibility: visible;
+  position:relative;
+  color: white;
+  background:rgba(46, 204, 112, 0.733);
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  margin-left: 6px;
+  margin-right: -2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+span[data-tag^="mod"]:is([class*=botTagCozy]){visibility:hidden;margin-left: -40px}
+span:has(span[data-tag^="mod"][class*=botTagCozy]):after
+{
+  content:"Chat Mod";
+  visibility: visible;
+  position:relative;
+  color: white;
+  background:firebrick;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  margin-left: 6px;
+  margin-right: -2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
+span[data-tag~=vc]:is([class*=botTagCozy]){visibility: hidden;margin-left: -55px;}
+span:has(span[data-tag~=vc][class*=botTagCozy]):after
+{
+  content:"VC MOD";
+  visibility: visible;
+  position:relative;
+  color: rgb(63, 179, 179);
+  background:#354946;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 74px;
+  padding: 1px;
+  margin-left: 6px;
+  margin-right: -2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-weight:bold;
+  text-align:center;
+  line-height:100%;
+}
