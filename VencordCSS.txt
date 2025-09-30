@@ -1,13 +1,24 @@
+/* https://github.com/AushevAhmad/awesome-css#installing-modules */
+/* @import url("https://aushevahmad.github.io/awesome-css/modules/channeltweaks.css"); */
+/* @import url("https://aushevahmad.github.io/awesome-css/modules/hiddenthreads.css"); */
+/* @import url("https://aushevahmad.github.io/awesome-css/modules/compressbotmsgs.css"); */
+@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css");
+
+
 /* Variable listings for the colors I use */
-:root{                         /* These mostly represent the 3 major rings of colors */
-  --borderColor:#292b43;     /* Outermost */
-  --sidebarColor:#191a28;    /* Middle    */
-  --bodyColor:#11111b;       /* Innermost */
+:root{                                          /* These mostly represent the 3 major rings of colors */
+  --borderColor:#292b43;                      /* Outermost #292b43 */
+  --sidebarColor:#191a28;                     /* Middle    */
+  --bodyColor:#11111b;                        /* Innermost */
   --messageHoverBackgroundColor:#22202f75;
+  --userProfileButtonsColor:#5357878a;        /* bottom left */
+  /* --info-warning-foreground:color-mix(in oklab, var(--yellow-300) 100%, var(--theme-text-color, #000) var(--theme-text-color-amount, 0%));    /* default @ message border color */
   --messageHoverBorderColor:firebrick;
   --chatBarColor:#1d1a2d;
-  --chatBarAccentColor:#550e0e;
+  --chatBarReplyAccentColor:#550e0e;
   --newMessageBannerColor:firebrick;
+  --messageOptionsMenuBGColor:firebrick;
+  --messageOptionsMenuButtonsColor:#970c28;
   /* Text Channels */
   --textChannelColor:red;
   --textChannelWithThreadsColor:red;
@@ -34,6 +45,7 @@
   --commentReplyReferenceSplineColor:#dc143ccb;
   --commentReplyClickGlowColor:#b2222244;
   }
+  
 
 
 /* --------------- No Pointer (pointer-events:none) --------------- */
@@ -43,6 +55,8 @@ div[class*=clickTrapContainer]:has(div[aria-label*="Inbox"]){pointer-events:none
 div[class*=footer] div[class*=gradient]{visibility:hidden} /* Removes the slight gradient at the bottom of your server list */
 /* --------------- REMOVALS (display:none) --------------- */
 /* Misc */
+[class*=chatTypingGradient], /* Strange massive gradient just above chat bar */
+[class*=chatGradient_], /* Same as above. This might LITERALLY be the same but updated? */
 div[class*=hoverBarButton][aria-label*="Click to"], div[class*=buttonsInner] div[class*=separator], /* Removes the 3 suggested emotes from the quick-menu when hovering comments */
 ul[aria-label="Direct Messages"] div[class*=container]:has([aria-label*=Activity]), /* Resolve Mod 2factor banner size reducer*/
 ul[aria-label*="Direct Messages"] div[class*=sectionDiv], /* The section dividers for things that we've already deleted */
@@ -62,6 +76,7 @@ div[role="button"][aria-label="Start Video Call"], /* video call button */
 #message-add-reaction-0, /* regular reaction button */
 #message-add-reaction-1, /* super reaction button */
 #message-mark-unread, /* mark a comment unread button */
+#user-context-request-to-stream, /* bait button that prompts people with an automatic DM */
 /* right-click user */
 #user-context-apps,
 #user-context-call, /* call */
@@ -80,8 +95,9 @@ div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM bu
     --text-link:var(--dnome-accent-soft);
     --background-secondary:var(--bodyColor);
     --background-secondary-alt:#22202f;
-    /* --background-tertiary:var(--borderColor); OLD - Affects the top bar border and some other minor colors */
-    --bg-base-tertiary:var(--borderColor)!important; /* Affects the top bar border and some other minor colors */
+    --background-base-lowest:var(--borderColor)!important; /* Affects the top bar border and some other minor colors */
+    --control-background-secondary-default:var(--borderColor)!important; /* Embed buttons */
+    --background-surface-high:var(--sidebarColor)!important; /* Profile Background non-nitro */
     --background-accent:#9141ac;
     --background-floating:#22202f;
     --background-mobile-primary:#22202f;
@@ -89,7 +105,7 @@ div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM bu
     --background-modifier-selected:var(--borderColor); /* original #22202f */
     --background-modifier-accent:#22202f;
     --background-message-hover:var(--messageHoverBackgroundColor); /* I changed this */
-    --background-help-info:rgba(145, 65, 172, 0.1);
+    --background-help-info:#9141ac1a;
     --scrollbar-thin-thumb:#a7a5ad;
     --scrollbar-thin-track:transparent;
     --scrollbar-auto-thumb:#a7a5ad;
@@ -104,7 +120,7 @@ div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM bu
     --search-popout-option-fade:#00000000;
     --search-popout-option-fade-hover:#00000000;
     --input-background:#22202f;
-    --brand-experiment-05a:rgba(145, 65, 172, 0.05);
+    --brand-experiment-05a:#9141ac0d;
     --profile-body-background-color:var(--dnome-list-item-hover);
     --brand-experiment-560:#9141ac;
     --brand-experiment:#9141ac;
@@ -125,14 +141,14 @@ div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM bu
     --dnome-searchbox:#22202f;
     --dnome-border-big:12px;
     --dnome-border-medium:8px;
-    --dnome-border-small:6px    
+    --dnome-border-small:6px;
 }
 .theme-dark{
 /*    --text-normal:#ffffff; normal text color */
     --background-modifier-hover:var(--folderExpandedListBackgroundColor); /* original #454150 */
-    --background-mentioned:rgba(255, 120, 0, 0.05);
-    --background-mentioned-hover:rgba(255, 120, 0, 0.08);
-    --background-help-warning:rgba(255, 120, 0, 0.1);
+    --background-mentioned:#ff78000d;
+    --background-mentioned-hover:#ff780014;
+    --background-help-warning:#ff78001a;
     --scrollbar-auto-track:#22202f;
     --profile-body-divider-color:#463d60;
     --profile-message-input-border-color:#463d60;
@@ -157,7 +173,7 @@ div[class*=ButtonMinMax][aria-label*=Min]{color:blue}
 /* About Me Section */
 div[class*=overlay]:has(section){background-color:var(--sidebarColor);}
 /* Reply, jumpToPresent & newMessage bar */
-div[class*=replyBar], div[class*=jumpToPresentBar]{background-color:var(--chatBarAccentColor)!important}
+div[class*=replyBar], div[class*=jumpToPresentBar]{background-color:var(--chatBarReplyAccentColor)!important}
 div[class*=jumpToPresentBar]{margin-right:10px!important;flex-flow:column;opacity:90%!important}
 div[class*=jumpToPresentBar] button{background-color:transparent!important;border:none!important}
 div[class*=newMessagesBar]{background-color:var(--newMessageBannerColor)}
@@ -194,9 +210,9 @@ div[class*=isExpanded] ul > div:nth-child(1) > div > div[class*=selected]:not([c
 /* div[class*=listItem] div:has(div[class*=upperBadge]) div[class*=upperBadge] div[class*=isCurrentUser]{background-color:#23a55a;border-radius:7px;scale:110%} /* you're connected color - default #23a55a */
 /* Message bar */
 div[class*="scrollableContainer"]:has(div[class*=textArea]){background-color:var(--chatBarColor)}
-/* Bottom-left user profile background color */
+/* Bottom-left user profile colors */
 div[class*=avatar]:not([class*=userAvatar]){background:transparent}
-div[class*=actionButtons] button{background:#5357878a!important}
+div[class*=actionButtons] button{background:var(--userProfileButtonsColor)!important}
 button:has(div[class*=rtcConnectionStatusConnected]){scale: 100%!important} /* keep Voice Connected 100% scaled */
 /* Message:hover background color */
 div[class*=message][aria-roledescription*=Message]:hover{background-color:var(--messageHoverBackgroundColor)}
@@ -256,10 +272,10 @@ div[class*=selectedChannel] div[class*="iconContainer"] svg, div[class*=selected
 [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"]{background-color: #dc143c98;color: gray!important;} /* ctrl-k hover color */
 [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div, [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div svg{font-weight:bolder;color: white!important;}
 div[class*=hoverBarButton]{background-color: crimson;color: black!important} /* comment hover buttons */
-div[class*=hoverBarButton]:hover, div[class^="button"] div div[aria-expanded="true"]{background-color: rgb(151, 12, 40)!important;color: white!important;} /* comment hover buttons -- clicked */
+div[class*=hoverBarButton]:hover, div[class^="button"] div div[aria-expanded="true"]{background-color:var(--messageOptionsMenuButtonsColor)!important;color: white!important;} /* comment hover buttons -- clicked */
 div[class^="attachedBars"] div div div div{background: rgb(132, 12, 36)!important;color: white!important;} /* reply bar */
 div[class*="replying"][class*="message"]{background: #840c2445!important;color: white;} /* reply colors */
-div[class*="replying"][class*="message"]:before{background-color:firebrick;width:5px;} /* reply :before colors */
+div[class*="replying"][class*="message"]:before{background-color:var(--messageHoverBorderColor);width:5px;} /* reply :before colors */
 div[class*="appAsidePanelWrapper-"] > div[class*="notAppAsidePanel"] > div > div > section{background: transparent!important;}
 section[role="dialog"][class^="contentWrapper-"]{background-color: rgb(36, 31, 49)!important;} /* message user colors */
 #user-context-message-user{background-color:transparent!important;color:rgba(0, 255, 132, 0.74)!important;font-weight: bolder;text-transform:uppercase!important;text-align:center;}
@@ -333,7 +349,8 @@ div[class*=videoFrame]{top:0px!important}
 #app-mount div[class*="videoWrapper"]{min-width:100%;max-height:100vh;background:black}
 #app-mount div[class*="actionRow"] button[aria-label*="Hide Members"]{visibility:hidden}
 div[class*=participantsWrapper]{display:none;}
-/* Make the 'internet lost' menu NOT hide your screen */div[class*=buttonsInner]{background:firebrick!important;}
+div[class*=buttonsInner]{background:var(--messageOptionsMenuBGColor)!important}
+/* Make the 'internet lost' menu NOT hide your screen */
 div[style*=connecting-container]:has(div[class*=content]){z-index:1;height:200px;width:200px;align-items:baseline;align-self:center;margin:auto;opacity:50%;pointer-events:none}
 div[class*=content] video[class*=spinner]{scale:200%}
 div[data-fade=false]{background:none}
@@ -507,4 +524,3 @@ span:has(span[data-tag~=vc][class*=botTagCozy]):after
   font-weight:bold;
   text-align:center;
   line-height:100%;
-}
