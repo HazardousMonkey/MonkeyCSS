@@ -318,7 +318,6 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 }
 
 /* --------------------- Fixes / Changes --------------------- */
-/*  */
 /* Read All button no longer clipped off */
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
 /* Revert User-panel to PRE -March 25th 2025- theme */
@@ -326,6 +325,7 @@ nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
 nav[aria-label="Private channels"]{background-color:var(--sidebarColor)!important}
 section[aria-label*=User]{border:none!important;width:80%!important;right:0;left:70px!important;border-radius:0!important;background-color:var(--sidebarColor)!important}
 section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2}
+section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px} /* Fix user area button spacing in oct 16th build */
 div[class*=sidebar]:after{display:none!important;visibility:hidden!important;}
 /* User Settings: Make some sidebar options more iconic */
 div[class*=sidebarRegion]{background-color:var(--bodyColor)!important}
@@ -524,3 +524,4 @@ span:has(span[data-tag~=vc][class*=botTagCozy]):after
   font-weight:bold;
   text-align:center;
   line-height:100%;
+}
