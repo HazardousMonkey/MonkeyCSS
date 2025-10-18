@@ -55,6 +55,9 @@ div[class*=clickTrapContainer]:has(div[aria-label*="Inbox"]){pointer-events:none
 div[class*=footer] div[class*=gradient]{visibility:hidden} /* Removes the slight gradient at the bottom of your server list */
 /* --------------- REMOVALS (display:none) --------------- */
 /* Misc */
+button[role=switch][aria-label="Mute"],button[role=switch][aria-label="Deafen"]{border-radius:8px!important}
+button[aria-label="Input Options"],
+button[aria-label="Output Options"],
 [class*=chatTypingGradient], /* Strange massive gradient just above chat bar */
 [class*=chatGradient_], /* Same as above. This might LITERALLY be the same but updated? */
 div[class*=hoverBarButton][aria-label*="Click to"], div[class*=buttonsInner] div[class*=separator], /* Removes the 3 suggested emotes from the quick-menu when hovering comments */
@@ -85,7 +88,7 @@ div[role="button"][aria-label="Start Video Call"], /* video call button */
 #user-context-add-friend, /* add friend  */
 #user-context-remove-friend, /* remove friend */
 div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM button */
-#user-context-invite-to-server{display:none} /* invite to server */
+#user-context-invite-to-server{display:none!important} /* invite to server */
 
 /* ------------- GENERAL THEMING (edited from a basic template) ------------- */
 .theme-dark, .theme-light{
