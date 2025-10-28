@@ -55,7 +55,6 @@ div[class*=clickTrapContainer]:has(div[aria-label*="Inbox"]){pointer-events:none
 div[class*=footer] div[class*=gradient]{visibility:hidden} /* Removes the slight gradient at the bottom of your server list */
 /* --------------- REMOVALS (display:none) --------------- */
 /* Misc */
-button[role=switch][aria-label="Mute"],button[role=switch][aria-label="Deafen"]{border-radius:8px!important}
 button[aria-label="Input Options"],
 button[aria-label="Output Options"],
 [class*=chatTypingGradient], /* Strange massive gradient just above chat bar */
@@ -70,9 +69,9 @@ div[class*=container] > aside div[role=listitem]:has(div[class*=openOnHover]), /
 div[class*=trail] a:has([aria-label="Help"]), /* F1 help button */
 div[role="button"][aria-label="Start Video Call"], /* video call button */
 /* message bar */
-#app-mount button[aria-label="Send a gift"], /* nitro gift button */
-#app-mount div[class*="threadSuggestionBar"], /* thread creator tip */
-#app-mount div[class*="channelAppLauncher"], /* Bottom right app button */
+div[class*=channelBottomBar] div[class*=container]:has(div[aria-label="Send a gift"]), /* nitro gift button */
+div[class*="channelAppLauncher"], /* Bottom right app button */
+div[class*="threadSuggestionBar"], /* thread creator tip */
 /* right-click messages */
 #message div[class^="wrapper"],
 #message-tts, /* TTS button */
@@ -89,6 +88,8 @@ div[role="button"][aria-label="Start Video Call"], /* video call button */
 #user-context-remove-friend, /* remove friend */
 div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM button */
 #user-context-invite-to-server{display:none!important} /* invite to server */
+/* Stuff that requires extra styling */
+button[role=switch][aria-label="Mute"],button[role=switch][aria-label="Deafen"]{border-radius:8px!important}
 
 /* ------------- GENERAL THEMING (edited from a basic template) ------------- */
 .theme-dark, .theme-light{
@@ -328,7 +329,7 @@ nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
 nav[aria-label="Private channels"]{background-color:var(--sidebarColor)!important}
 section[aria-label*=User]{border:none!important;width:80%!important;right:0;left:70px!important;border-radius:0!important;background-color:var(--sidebarColor)!important}
 section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2}
-section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px} /* Fix user area button spacing in oct 16th build */
+section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px;padding-right:0px} /* Fix user area button spacing in oct 16th build */
 div[class*=sidebar]:after{display:none!important;visibility:hidden!important;}
 /* User Settings: Make some sidebar options more iconic */
 div[class*=sidebarRegion]{background-color:var(--bodyColor)!important}
