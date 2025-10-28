@@ -329,7 +329,8 @@ nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
 nav[aria-label="Private channels"]{background-color:var(--sidebarColor)!important}
 section[aria-label*=User]{border:none!important;width:80%!important;right:0;left:70px!important;border-radius:0!important;background-color:var(--sidebarColor)!important}
 section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2}
-section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px;padding-right:0px} /* Fix user area button spacing in oct 16th build */
+section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px;padding-right:5px} /* Fix user area button spacing in oct 16th build */
+section[aria-label*=User] div[class*=buttons]{gap:2px} /* Reduce button gap, allow for more user space */
 div[class*=sidebar]:after{display:none!important;visibility:hidden!important;}
 /* User Settings: Make some sidebar options more iconic */
 div[class*=sidebarRegion]{background-color:var(--bodyColor)!important}
