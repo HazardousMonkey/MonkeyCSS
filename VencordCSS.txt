@@ -227,10 +227,14 @@ div[data-flash=false]{transition-duration:3s!important;transition-property:all!i
 div[class*=interactive]:hover{background-color:#53578767;}
 div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
 /* Text Channels */
-#channels div[class^="iconContainer"][aria-label*="Text"] svg, #channels div[class^="iconContainer"][aria-label="Text (Limited)"] svg svg{color:var(--textChannelColor)}
-#channels div[class^="iconContainer"][aria-label*="Text (Active Threads)"] svg{color:var(--textChannelWithThreadsColor);}
-#channels div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:before
+#channels div[class*="iconContainer"][aria-label*="Text"] svg, #channels div[class*="iconContainer"][aria-label="Text (Limited)"] svg svg{color:var(--textChannelColor)}
+#channels div[class*="iconContainer"][aria-label*="Text (Active Threads)"] svg{color:var(--textChannelWithThreadsColor);}
+/* Text Channel Thread Indicator  */
+#channels div[class*="modeMuted"] div[aria-label*="Text (Active Threads)"]:before{opacity: var(--mutedChannelIconOpacity)} /* Indicator acknowledges channel mute colors */
+#channels div[class*="iconContainer"][aria-label*="Text (Active Threads)"]:has(path + path):before{left:-3px} /* Move the thread indicator so that it doesn't bunch up with the Locked icon */
+#channels div[class*="iconContainer"][aria-label*="Text (Active Threads)"]:before
 {
+  /* Indicator contents (doesn't work without this) */
   content:var(--threadIdentifierContent);
   margin-left: 0px;
   top: -5px;
@@ -242,12 +246,24 @@ div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
   min-width: 100px;
   font-weight:bold;
 }
-#channels div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:has(path + path):before{left:-3px} /* Move the thread indicator so that it doesn't bunch up with the Locked icon */
 /* Voice Channels */
 #channels div[class*="iconContainer"][aria-label*="Voice"] svg{color:var(--voiceChannelColor)}
 #channels div[class*="iconContainer"][aria-label*="Voice (Locked)"] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity);}
 .vc-uvs-speaker{color:var(--voiceChannelColor);margin-right:1px;margin-left:1px}
 /* Other Channels & Channel Settings */
+#channels div[class*=modeMuted] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity)}
+div[class*=selectedChannel] div[class*="iconContainer"] svg, div[class*=selectedChannel] div[class*="iconContainer"]:before{opacity:100%!important}
+#channels div[class*=modeMuted] div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:before{opacity:var(--mutedChannelIconOpacity)}
+#channels div[class*="iconContainer"][aria-label^="Announcements"] svg, #channels div[class*="iconContainer"][aria-label="Announcements (Limited)"] svg{color:var(--announcementsChannelColor)}
+#channels div[class*="iconContainer"][aria-label^="Forum"] svg, #channels div[class*="iconContainer"][aria-label="Forum (Limited)"] svg{color:var(--forumChannelColor)}
+#channels div[class*="iconContainer"][aria-label^="Rules"] svg{color:var(--rulesChannelColor)}
+#channels div[class*="iconContainer"][aria-label^="Stage"] svg, #channels div[class*="iconContainer"][aria-label*="Stage (Limited)"] svg path{color:var(--stageChannelColor)}
+/* Server management channels
+#channels div:has(div[aria-label*=Events]) svg{color:var(--eventChannelColor)}
+#channels div:has(div[aria-label*=Channels]) svg{color:var(--channelsAndRolesColor)}
+#channels div:has(div[aria-label*=Members]) svg{color:var(--membersChannelColor)}
+#channels div:has(div[aria-label*=Server]) svg{color:var(--serverGuideChannel)}
+*/
 div[class*=iconSizeMini]{border-radius:100%!important} /* Servers in folders are circles again -- default: border-radius: 13px 4px 4px */
 div[class*=iconSizeMini] div[class*=acronym]{position:relative;top:-1px}
 /* this will make it so server icons in folders are Blobby instead of Circles
@@ -255,19 +271,6 @@ div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(1){border-ra
 div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(2){border-radius: 4px 13px 4px 4px!important}
 div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(3){border-radius: 4px 4px 4px 13px!important}
 div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(4){border-radius: 4px 4px 13px!important}
-*/
-#channels div[class*=modeMuted] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity)}
-div[class*=selectedChannel] div[class*="iconContainer"] svg, div[class*=selectedChannel] div[class*="iconContainer"]:before{opacity:100%!important}
-#channels div[class*=modeMuted] div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:before{opacity:var(--mutedChannelIconOpacity)}
-#channels div[class^="iconContainer"][aria-label^="Announcements"] svg, #channels div[class^="iconContainer"][aria-label="Announcements (Limited)"] svg{color:var(--announcementsChannelColor)}
-#channels div[class^="iconContainer"][aria-label^="Forum"] svg, #channels div[class^="iconContainer"][aria-label="Forum (Limited)"] svg{color:var(--forumChannelColor)}
-#channels div[class^="iconContainer"][aria-label^="Rules"] svg{color:var(--rulesChannelColor)}
-#channels div[class^="iconContainer"][aria-label^="Stage"] svg, #channels div[class*="iconContainer"][aria-label*="Stage (Limited)"] svg path{color:var(--stageChannelColor)}
-/* Server management channels
-#channels div:has(div[aria-label*=Events]) svg{color:var(--eventChannelColor)}
-#channels div:has(div[aria-label*=Channels]) svg{color:var(--channelsAndRolesColor)}
-#channels div:has(div[aria-label*=Members]) svg{color:var(--membersChannelColor)}
-#channels div:has(div[aria-label*=Server]) svg{color:var(--serverGuideChannel)}
 */
 /* ----------- Misc ----------- */
 #app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
