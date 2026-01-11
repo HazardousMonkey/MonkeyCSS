@@ -45,7 +45,6 @@
   --commentReplyReferenceSplineColor:#dc143ccb;
   --commentReplyClickGlowColor:#b2222244;
   }
-  
 
 
 /* --------------- No Pointer (pointer-events:none) --------------- */
@@ -178,7 +177,7 @@ div[class*=ButtonMinMax][aria-label*=Min]{color:blue}
 div[class*=overlay]:has(section){background-color:var(--sidebarColor);}
 /* Reply, jumpToPresent & newMessage bar */
 div[class*=replyBar], div[class*=jumpToPresentBar]{background-color:var(--chatBarReplyAccentColor)!important}
-div[class*=jumpToPresentBar]{margin-right:10px!important;flex-flow:column;opacity:90%!important}
+div[class*=jumpToPresentBar]{margin-right:20px;margin-bottom:15px;flex-flow:column;opacity:90%!important}
 div[class*=jumpToPresentBar] button{background-color:transparent!important;border:none!important}
 div[class*=newMessagesBar]{background-color:var(--newMessageBannerColor)}
 /* Reply Arrow */
@@ -325,8 +324,15 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 }
 
 /* --------------------- Fixes / Changes --------------------- */
+/* Move and minor styling changes to the "XXX user Is Typing" section */  
+div[class*=typingDots]{display:flex;flex-direction:row-reverse} /* Move element from the left to the right */
+div[class*=typingDots] > svg{display:none!important} /* Get rid of typing dots */
+div[class*=typingDots] strong{padding-right:2px} /* Add some word spacing for better glance value */
+div[class*=typingDots] span{margin-bottom:5px;color:white;font-weight:bolder;border-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
+
 /* Read All button no longer clipped off */
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
+
 /* Revert User-panel to PRE -March 25th 2025- theme */
 nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
 nav[aria-label="Private channels"]{background-color:var(--sidebarColor)!important}
@@ -335,43 +341,56 @@ section[aria-label*=User] button:hover{transition-duration:.25s;transition-prope
 section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px;padding-right:5px} /* Fix user area button spacing in oct 16th build */
 section[aria-label*=User] div[class*=buttons]{gap:2px} /* Reduce button gap, allow for more user space */
 div[class*=sidebar]:after{display:none!important;visibility:hidden!important;}
+
 /* User Settings: Make some sidebar options more iconic */
 div[class*=sidebarRegion]{background-color:var(--bodyColor)!important}
 div[aria-label*=Settings] div[aria-label*=Voice], div[aria-label*=Settings] div[aria-label*=Appearance], div[aria-label*=Settings] div[data-tab-id*=Plugins]{color:#6982d6!important}
 div[aria-label*=Settings] div[aria-label*=Voice]:hover, div[aria-label*=Settings] div[aria-label*=Appearance]:hover, div[aria-label*=Settings] div[data-tab-id*=Plugins]:hover{color:#436fff!important}
 /* div[aria-label*=Settings] div[aria-label*=Voice]:before, div[aria-label*=Settings] div[aria-label*=Appearance]:before, div[aria-label*=Settings] div[data-tab-id*=Plugins]:before{color:#6982d6;content: "►";position: absolute;left: -10px;width:100px!important;height: 100px!important} */
+
 /* Make codeblocks do Word Wrap */
 div[class*=textContainer] code{text-wrap:pretty}
+
 /* VC viewer now mentions that clicking will take you to the channel, not join it */
 div[class*=tooltip-content]:has([class="vc-uvs-name"]):before{content:"Click to VIEW channel";text-align:center;color:var(--voiceChannelColor)}
+
 /* fill Mod View border radius gap  */
 div[class*=sidebarCont] div[class*=profile] div[class*=inner]{border-radius:0px}
+
 /* Fix emote picker having a huge vison blocker */
 section[aria-label*="Expression Picker"]{background:none!important}
 #emoji-picker-tab-panel > div >div{background: var(--bodyColor)!important;}
 #emoji-picker-tab-panel > div > div div[class*=header], #emoji-picker-tab-panel > div > div[class*=bodyWrapper]{background: var(--sidebarColor)!important;border-bottom-left-radius:20px;border-top-left-radius:20px}
+
 /* "New Unreads" button */
 div[class*=bar]:has(svg[class*=unreadIcon])[role=button]{border:2px ridge rgba(255, 0, 0, 0.418);}
+
 /* discord streams now fullscreen */
 div[class*=videoFrame]{top:0px!important}
 #app-mount div[class*="videoWrapper"]{min-width:100%;max-height:100vh;background:black}
 #app-mount div[class*="actionRow"] button[aria-label*="Hide Members"]{visibility:hidden}
 div[class*=participantsWrapper]{display:none;}
 div[class*=buttonsInner]{background:var(--messageOptionsMenuBGColor)!important}
+
 /* Make the 'internet lost' menu NOT hide your screen */
 div[style*=connecting-container]:has(div[class*=content]){z-index:1;height:200px;width:200px;align-items:baseline;align-self:center;margin:auto;opacity:50%;pointer-events:none}
 div[class*=content] video[class*=spinner]{scale:200%}
 div[data-fade=false]{background:none}
 div[data-fade=false] div {color: red!important;visibility: hidden}
+
 /* Typing Plugin is now smaller */
 .vc-typing-indicator{flex-flow:column-reverse;position:relative;right:-5px;line-height:23px;padding-left:0px!important}
 svg g circle{scale:80%}
+
 /* fix buttons having bad backgrounds */
 div[class^="buttonContainer"] div div{background: transparent;}
+
 /* This makes Typing channels have some background color a[class*=link]:has(div[class*=typing]):before{background: rgba(175, 29, 29, 0.048);border-radius: 3px;}
 */
+
 /* Server Counter  */
 #vc-guildcount{color:#006eff!important;font-size: 20px!important;margin:-5px;margin-left: 20px;text-align: left!important;word-spacing:40px;text-wrap:nowrap!important}
+
 /* Server Perm custom banner  plugin changes */
 span[data-tag~=owner]:not([class*=botTagCozy]){color: white;background:#9f1def}
 span[data-tag~=admin]:not([class*=botTagCozy]){color: white;background:#ff7300d7}
