@@ -68,8 +68,8 @@ div[class*=container] > aside div[role=listitem]:has(div[class*=openOnHover]), /
 div[class*=trail] a:has([aria-label="Help"]), /* F1 help button */
 div[role="button"][aria-label="Start Video Call"], /* video call button */
 /* message bar */
-div[class*=channelBottomBar] div[class*=container]:has(div[aria-label="Send a gift"]), /* nitro gift button */
-div[class*="channelAppLauncher"], /* Bottom right app button */
+form div[class*=channelBottomBarArea] > div > div > div div[aria-label="Send a gift"], /* nitro gift button */
+div[class*="app-launcher-entry"], /* Bottom right app button */
 div[class*="threadSuggestionBar"], /* thread creator tip */
 /* right-click messages */
 #message div[class^="wrapper"],
