@@ -324,23 +324,27 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 }
 
 /* --------------------- Fixes / Changes --------------------- */
-/* Move and minor styling changes to the "XXX user Is Typing" section */  
-div[class*=typingDots]{display:flex;flex-direction:row-reverse} /* Move element from the left to the right */
-div[class*=typingDots] > svg{display:none!important} /* Get rid of typing dots */
-div[class*=typingDots] strong{padding-right:2px} /* Add some word spacing for better glance value */
-div[class*=typingDots] span{margin-bottom:5px;color:white;font-weight:bolder;border-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
+/* DMs - Move and minor styling changes to the "XXX user Is Typing" section */
+#app-mount main[aria-label=" (channel)"] div[class*=typingDots]{display:inline-block} /* Keeps the element on the left for DM chats */
+/* Servers */  
+#app-mount main div[class*=typingDots]{display:flex;flex-direction:row-reverse} /* Move element from the left to the right */
+#app-mount main div[class*=typingDots] > svg{display:none!important} /* Get rid of typing dots */
+#app-mount main div[class*=typingDots] strong{padding-right:2px} /* Add some word spacing for better glance value */
+#app-mount main div[class*=typingDots] span{margin-bottom:5px;color:white;font-weight:bolder;border-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
 
 /* Read All button no longer clipped off */
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
 
 /* Revert User-panel to PRE -March 25th 2025- theme */
-nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
-nav[aria-label="Private channels"]{background-color:var(--sidebarColor)!important}
-section[aria-label*=User]{border:none!important;width:80%!important;right:0;left:70px!important;border-radius:0!important;background-color:var(--sidebarColor)!important}
-section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2}
-section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:0px;padding-right:5px} /* Fix user area button spacing in oct 16th build */
+section[aria-label*=User]{border:none!important;width:calc(100% - 70px);right:0;left:70px;border-radius:0!important;background-color:var(--sidebarColor)} /* Main repositioning & theming */
+section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2} /* Button animations on Hover */
+section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:2px} /* Fix user area button spacing in oct 16th build */
+section[aria-label*=User] > div div[class*=actionButton] button{padding:0px} /* Prevent button images from downscaling */
 section[aria-label*=User] div[class*=buttons]{gap:2px} /* Reduce button gap, allow for more user space */
-div[class*=sidebar]:after{display:none!important;visibility:hidden!important;}
+section > div > div[class*=buttons]{padding-right:5px} /* Bottom buttons */
+div[class*=sidebar]:after{display:none} /* Removals */
+nav[aria-label="Private channels"]{background-color:var(--sidebarColor)}
+nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
 
 /* User Settings: Make some sidebar options more iconic */
 div[class*=sidebarRegion]{background-color:var(--bodyColor)!important}
