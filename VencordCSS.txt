@@ -50,9 +50,9 @@
 /* --------------- No Pointer (pointer-events:none) --------------- */
 div[class*=clickTrapContainer]:has(section[aria-label*="Expression Picker"]){pointer-events:none} /* Click-trap for emote menu */
 div[class*=clickTrapContainer]:has(div[aria-label*="Inbox"]){pointer-events:none} /* Click-trap for Inbox menu */
-/* --------------- HIDDEN (visibility:hidden) --------------- */
+/* --------------- HIDDEN (visibility:hidden) --------------------- */
 div[class*=footer] div[class*=gradient]{visibility:hidden} /* Removes the slight gradient at the bottom of your server list */
-/* --------------- REMOVALS (display:none) --------------- */
+/* --------------- REMOVALS (display:none) ------------------------ */
 /* Misc */
 button[aria-label="Input Options"],
 button[aria-label="Output Options"],
@@ -89,6 +89,7 @@ div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM bu
 #user-context-invite-to-server{display:none!important} /* invite to server */
 /* Stuff that requires extra styling */
 button[role=switch][aria-label="Mute"],button[role=switch][aria-label="Deafen"]{border-radius:8px!important}
+main div[class*=managedReactiveScroller] > div{background:var(--bodyColor);z-index:2} /* jank - removes bottom gradient just above and inside the message bar */
 
 /* ------------- GENERAL THEMING (edited from a basic template) ------------- */
 .theme-dark, .theme-light{
@@ -181,7 +182,7 @@ div[class*=jumpToPresentBar]{margin-right:20px;margin-bottom:15px;flex-flow:colu
 div[class*=jumpToPresentBar] button{background-color:transparent!important;border:none!important}
 div[class*=newMessagesBar]{background-color:var(--newMessageBannerColor)}
 /* Reply Arrow */
-div[id*="message-reply-context"][class^="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
+li div[id*="message-reply-context"][class*="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
 /* Main Background */
 /* section[aria-label="Channel header"]{border:none!important} top bar border -- should I get rid of it?*/
 [class*=membersWrap] > div[class*=members]{background-color:var(--bodyColor)} /* Members List itself */
@@ -336,13 +337,13 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
 
 /* Revert User-panel to PRE -March 25th 2025- theme */
-section[aria-label*=User]{border:none!important;width:calc(100% - 70px);right:0;left:70px;border-radius:0!important;background-color:var(--sidebarColor)} /* Main repositioning & theming */
-section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2} /* Button animations on Hover */
+div[class*=sidebar]:has(div[class*=betterFolder]) section[aria-label*=User]{width:calc(100% - 134px);left:134px} /* Better Folders override in case you use Expansion */
+section[aria-label*=User]{width:calc(100% - 70px);left:70px;border:none;border-radius:0;background-color:var(--sidebarColor)} /* Main repositioning & theming */
 section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:2px} /* Fix user area button spacing in oct 16th build */
 section[aria-label*=User] > div div[class*=actionButton] button{padding:0px} /* Prevent button images from downscaling */
 section[aria-label*=User] div[class*=buttons]{gap:2px} /* Reduce button gap, allow for more user space */
-section > div > div[class*=buttons]{padding-right:5px} /* Bottom buttons */
-div[class*=sidebar]:after{display:none} /* Removals */
+section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2} /* Button animations on Hover */
+div[class*=sidebar]:after{display:none} /* Removals below */
 nav[aria-label="Private channels"]{background-color:var(--sidebarColor)}
 nav[aria-label*=sidebar] button[class*=lookFilled]{border:none;width:101%}
 
