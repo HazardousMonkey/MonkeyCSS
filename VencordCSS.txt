@@ -38,7 +38,7 @@
   --membersChannelColor:gray;         /* Members */
   --serverGuideChannel:gray;          /* Server Guide */
   /* Server Folders */
-  --folderBackgroundColor:#535787e0;
+  /* --folderBackgroundColor:#535787e0;
   --folderExpandedListBackgroundColor:#53578767;
   /* These relate to various aspects of comment Replies */
   --commentPersonalReplyReferenceSplineColor:goldenrod;
