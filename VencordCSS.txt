@@ -50,14 +50,19 @@
 /* --------------- No Pointer (pointer-events:none) --------------- */
 div[class*=clickTrapContainer]:has(section[aria-label*="Expression Picker"]){pointer-events:none} /* Click-trap for emote menu */
 div[class*=clickTrapContainer]:has(div[aria-label*="Inbox"]){pointer-events:none} /* Click-trap for Inbox menu */
+
 /* --------------- HIDDEN (visibility:hidden) --------------------- */
 div[class*=footer] div[class*=gradient]{visibility:hidden} /* Removes the slight gradient at the bottom of your server list */
+
+/* --------------- Stuff that requires extra styling ------------------------ */
+button[role=switch][aria-label="Mute"],button[role=switch][aria-label="Deafen"]{border-radius:8px!important} /* Round out mute/deaf buttons  */
+
 /* --------------- REMOVALS (display:none) ------------------------ */
 /* Misc */
-button[aria-label="Input Options"],
+button[aria-label="Input Options"], /* Mute/Deaf arrow buttons */
 button[aria-label="Output Options"],
 [class*=chatTypingGradient], /* Strange massive gradient just above chat bar */
-[class*=chatGradient_], /* Same as above. This might LITERALLY be the same but updated? */
+[class*=chatGradient], /* Same as above. This might LITERALLY be the same but updated? */
 div[class*=hoverBarButton][aria-label*="Click to"], div[class*=buttonsInner] div[class*=separator], /* Removes the 3 suggested emotes from the quick-menu when hovering comments */
 ul[aria-label="Direct Messages"] div[class*=container]:has([aria-label*=Activity]), /* Resolve Mod 2factor banner size reducer*/
 ul[aria-label*="Direct Messages"] div[class*=sectionDiv], /* The section dividers for things that we've already deleted */
@@ -72,14 +77,14 @@ form div[class*=channelBottomBarArea] > div > div > div div[aria-label="Send a g
 div[class*="app-launcher-entry"], /* Bottom right app button */
 div[class*="threadSuggestionBar"], /* thread creator tip */
 /* right-click messages */
-#message div[class^="wrapper"],
-#message-tts, /* TTS button */
+#message div div:has([aria-label*=Reaction]), /* Quick emotes */
+#message-add-reaction, #message div[role*=separator]:nth-child(3),
 #message-add-reaction-0, /* regular reaction button */
 #message-add-reaction-1, /* super reaction button */
+#message-tts, /* TTS button */
 #message-mark-unread, /* mark a comment unread button */
 #user-context-request-to-stream, /* bait button that prompts people with an automatic DM */
 /* right-click user */
-#user-context-apps,
 #user-context-call, /* call */
 #user-context-note, /* note */
 /* #user-context-add-friend-nickname,  add friend nickname */
@@ -87,9 +92,6 @@ div[class*="threadSuggestionBar"], /* thread creator tip */
 #user-context-remove-friend, /* remove friend */
 div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM button */
 #user-context-invite-to-server{display:none!important} /* invite to server */
-/* Stuff that requires extra styling */
-button[role=switch][aria-label="Mute"],button[role=switch][aria-label="Deafen"]{border-radius:8px!important}
-main div[class*=managedReactiveScroller] > div{background:var(--bodyColor);z-index:2} /* jank - removes bottom gradient just above and inside the message bar */
 
 /* ------------- GENERAL THEMING (edited from a basic template) ------------- */
 .theme-dark, .theme-light{
@@ -180,7 +182,7 @@ div[class*=overlay]:has(section){background-color:var(--sidebarColor);}
 div[class*=replyBar], div[class*=jumpToPresentBar]{background-color:var(--chatBarReplyAccentColor)!important}
 div[class*=jumpToPresentBar]{margin-right:20px;margin-bottom:15px;flex-flow:column;opacity:90%!important}
 div[class*=jumpToPresentBar] button{background-color:transparent!important;border:none!important}
-div[class*=newMessagesBar]{background-color:var(--newMessageBannerColor)}
+div[class*=newMessagesBar],div[class*=newTopicsBar]{background-color:var(--newMessageBannerColor)}
 /* Reply Arrow */
 li div[id*="message-reply-context"][class*="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
 /* Main Background */
@@ -387,6 +389,8 @@ div[data-fade=false] div {color: red!important;visibility: hidden}
 /* Typing Plugin is now smaller */
 .vc-typing-indicator{flex-flow:column-reverse;position:relative;right:-5px;line-height:23px;padding-left:0px!important}
 svg g circle{scale:80%}
+div[class*=linkTop]{gap:0px}
+div[class*=linkTop] > div[aria-label*=icon]{padding-right:6px}
 
 /* fix buttons having bad backgrounds */
 div[class^="buttonContainer"] div div{background: transparent;}
