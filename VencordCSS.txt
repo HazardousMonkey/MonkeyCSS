@@ -196,6 +196,8 @@ div[aria-label*=Inbox] div[class*=messageContainer]{background-color:var(--sideb
 div[class*=container] div[class*=emptyChannelIcon]{background-color:var(--borderColor)} /* "empty channel" icon color */
 
 /* Chat Summary */
+span[class*=summaryEnd]{background:transparent!important} /* maintain summary border color */
+ol div[class*=divider] span[class*=content]{background-color:var(--bodyColor)} /* non-summary chat-block Date */
 span[class*=summaryEnd] div, span[class*=summaryEnd] svg{background-color:var(--bodyColor)}
 div[class*=summaryDivider] div svg{background:var(--text-brand)}
 div[class*=summaryDivider] div svg{color:var(--bodyColor)}
