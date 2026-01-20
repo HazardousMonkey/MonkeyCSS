@@ -185,6 +185,7 @@ div[class*=jumpToPresentBar] button{background-color:transparent!important;borde
 div[class*=newMessagesBar],div[class*=newTopicsBar]{background-color:var(--newMessageBannerColor)}
 /* Reply Arrow */
 li div[id*="message-reply-context"][class*="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
+
 /* Main Background */
 /* section[aria-label="Channel header"]{border:none!important} top bar border -- should I get rid of it?*/
 [class*=membersWrap] > div[class*=members]{background-color:var(--bodyColor)} /* Members List itself */
@@ -193,10 +194,16 @@ section[aria-label*=header], div[data-list-id*=private-channels], div[class*=sea
 div[class*=standardSidebarView] div[class*=contentRegion]{background:var(--sidebarColor)}
 div[aria-label*=Inbox] div[class*=messageContainer]{background-color:var(--sidebarColor)} /* Background for comments inside your inbox */
 div[class*=container] div[class*=emptyChannelIcon]{background-color:var(--borderColor)} /* "empty channel" icon color */
-div[class*=divider][role*=separator] span[class*=content]{background-color:var(--bodyColor)} /* Date separator for blocks of messages */
+
+/* Chat Summary */
+span[class*=summaryEnd] div, span[class*=summaryEnd] svg{background-color:var(--bodyColor)}
+div[class*=summaryDivider] div svg{background:var(--text-brand)}
+div[class*=summaryDivider] div svg{color:var(--bodyColor)}
+
 foreignObject > div > div{background:var(--folderBackgroundColor)}
 span[class*=expandedFolderBackground]{background:var(--folderExpandedListBackgroundColor)}
 div[class*=children]:after{display:none!important}
+
 /* --- Body Color for a ton of listings */
 div[class*=messagesWrapper] div:has(div[class*=reactButtons]),
 main[class*=chatContent], main[class*=container][aria-label*=Friends],
@@ -204,9 +211,11 @@ div[class*=loadingCard], div[data-list-id*=forum-channel-list],
 div[data-list-id*=forum-channel-list] div[class*=container],
 div[class*=lock-screen-container],
 div[class*=nowPlayingColumn] > aside{background:var(--bodyColor)!important}
+
 /* Forums */
 div[class*=headerWithMatchingPosts], div[class*=matchingPostsRow], div[class*=mainCard]{background:transparent!important;border:0px transparent;}
 div[data-list-id*=forum-channel-list] div[class*=container]{border: 2px solid #53578767;border-radius: 20px;border-right-style:dashed;border-left-style:dashed;}
+
 /* Server Icons */
 div[aria-label*=Servers] > div > div > div:hover:not([class*=selected]){scale:115%!important;transition-property:scale;transition-duration:.2s}
 div[aria-label*=Servers] div[class*=selected]{scale:115%}
@@ -214,23 +223,30 @@ div[class*=isExpanded] ul > div:nth-child(1) > div > div[class*=selected]:not([c
 /* Server Icons -> Voice Connected icon */
 /* div[class*=listItem] div:has(div[class*=upperBadge]) div[class*=upperBadge] div:not([class*=isCurrentUser]){background-color:var(--voiceChannelColor);border-radius:7px;scale:110%} /* you just left the voice call color */
 /* div[class*=listItem] div:has(div[class*=upperBadge]) div[class*=upperBadge] div[class*=isCurrentUser]{background-color:#23a55a;border-radius:7px;scale:110%} /* you're connected color - default #23a55a */
+
 /* Message bar */
 div[class*="scrollableContainer"]:has(div[class*=textArea]){background-color:var(--chatBarColor)}
+
 /* Bottom-left user profile colors */
 div[class*=avatar]:not([class*=userAvatar]){background:transparent}
 div[class*=actionButtons] button{background:var(--userProfileButtonsColor)!important}
 button:has(div[class*=rtcConnectionStatusConnected]){scale: 100%!important} /* keep Voice Connected 100% scaled */
+
 /* Message:hover background color */
 div[class*=message][aria-roledescription*=Message]:hover{background-color:var(--messageHoverBackgroundColor)}
+
 /* Makes clicked reply links more obvious */
 div[data-flash=true]{background:var(--commentReplyClickGlowColor)!important;transition-duration:.2s!important;transition-property:all!important;border-bottom-left-radius:20px;border-top-left-radius:20px}
 div[data-flash=false]{transition-duration:3s!important;transition-property:all!important;}
+
 /* DM channel theme */
 div[class*=interactive]:hover{background-color:#53578767;}
 div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
+
 /* Text Channels */
 #channels div[class*="iconContainer"][aria-label*="Text"] svg, #channels div[class*="iconContainer"][aria-label="Text (Limited)"] svg svg{color:var(--textChannelColor)}
 #channels div[class*="iconContainer"][aria-label*="Text (Active Threads)"] svg{color:var(--textChannelWithThreadsColor);}
+
 /* Text Channel Thread Indicator  */
 #channels div[class*="modeMuted"] div[aria-label*="Text (Active Threads)"]:before{opacity: var(--mutedChannelIconOpacity)} /* Indicator acknowledges channel mute colors */
 #channels div[class*="iconContainer"][aria-label*="Text (Active Threads)"]:has(path + path):before{left:-3px} /* Move the thread indicator so that it doesn't bunch up with the Locked icon */
