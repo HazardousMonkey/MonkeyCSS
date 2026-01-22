@@ -175,6 +175,7 @@ div[class*=ButtonClose]{color:#dddddd}
 div[class*=ButtonMinMax][aria-label*=Max]{color:orange}
 div[class*=ButtonMinMax][aria-label*=Min]{color:blue}
 */
+
 /* User Profiles */
 /* About Me Section */
 div[class*=overlay]:has(section){background-color:var(--sidebarColor);}
@@ -187,7 +188,6 @@ div[class*=newMessagesBar],div[class*=newTopicsBar]{background-color:var(--newMe
 li div[id*="message-reply-context"][class*="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
 
 /* Main Background */
-/* section[aria-label="Channel header"]{border:none!important} top bar border -- should I get rid of it?*/
 [class*=membersWrap] > div[class*=members]{background-color:var(--bodyColor)} /* Members List itself */
 [class*=membersWrap] > div[class*=members] div[class*=member]{background:transparent!important} /* Member listings - transparent background */
 section[aria-label*=header], div[data-list-id*=private-channels], div[class*=searchBar]:has(button), nav[class*=container]{background-color:var(--sidebarColor)!important}
@@ -196,7 +196,7 @@ div[aria-label*=Inbox] div[class*=messageContainer]{background-color:var(--sideb
 div[class*=container] div[class*=emptyChannelIcon]{background-color:var(--borderColor)} /* "empty channel" icon color */
 
 /* Chat Summary */
-span[class*=summaryEnd]{background:transparent!important} /* maintain summary border color */
+span[class*=summaryEnd]{background:transparent!important} /* maintain summary border color - !important required */
 ol div[class*=divider] span[class*=content]{background-color:var(--bodyColor)} /* non-summary chat-block Date */
 span[class*=summaryEnd] div, span[class*=summaryEnd] svg{background-color:var(--bodyColor)}
 div[class*=summaryDivider] div svg{background:var(--text-brand)}
@@ -350,16 +350,39 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 /* Servers */  
 #app-mount main div[class*=typingDots]{display:flex;flex-direction:row-reverse;padding-right:35px} /* Move element from the left to the right */
 #app-mount main:has(div[class*=cooldownWrapper]) div[class*=typingDots]{padding-right:0px} /* Account for Slowmode channel text */
+#app-mount main div[class*=cooldownWrapper]{background:var(--bodyColor);z-index:1}
 #app-mount main div[class*=typingDots] > svg{display:none!important} /* Get rid of typing dots */
 #app-mount main div[class*=typingDots] strong{padding-right:2px} /* Add some word spacing for better glance value */
-#app-mount main div[class*=typingDots] span{margin-bottom:5px;color:white;font-weight:bolder;border-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
+#app-mount main div[class*=typingDots] span{box-shadow:100px 0 0 0px var(--bodyColor);margin-bottom:5px;color:white;font-weight:bolder;border-top-left-radius:10px;border-bottom-left-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
+#app-mount form:after
+{
+  transition-property:left;transition-duration:1s;
+  content:"";position:absolute;
+  top:-17px;
+  left:100%;
+  height:2px;width:calc(100% - 540px);
+  border:4px solid var(--bodyColor);border-top-left-radius:10px;border-bottom-left-radius:10px;
+  background-color:var(--text-brand);
+  mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+#app-mount form:has(div[class*=typingDots] div):after
+{
+  transition-property:left;transition-duration:1s;
+  content:"";position:absolute;
+  top:-17px;
+  left:30%;
+  height:2px;width:calc(100% - 540px);
+  border:4px solid var(--bodyColor);border-top-left-radius:10px;border-bottom-left-radius:10px;
+  background-color:var(--text-brand);
+  mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
 
 /* Read All button no longer clipped off */
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
 
 /* Revert User-panel to PRE -March 25th 2025- theme */
 div[class*=sidebar]:has(div[class*=betterFolder]) section[aria-label*=User]{width:calc(100% - 134px);left:134px} /* Better Folders override in case you use Expansion */
-section[aria-label*=User]{width:calc(100% - 70px);left:70px;border:none;border-radius:0;background-color:var(--sidebarColor)} /* Main repositioning & theming */
+section[aria-label*=User]{width:calc(100% - 70px);left:70px;border:none;background-color:var(--sidebarColor)} /* Main repositioning & theming */
 section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:2px} /* Fix user area button spacing in oct 16th build */
 section[aria-label*=User] > div div[class*=actionButton] button{padding:0px} /* Prevent button images from downscaling */
 section[aria-label*=User] div[class*=buttons]{gap:2px} /* Reduce button gap, allow for more user space */
