@@ -354,28 +354,6 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 #app-mount main div[class*=typingDots] > svg{display:none!important} /* Get rid of typing dots */
 #app-mount main div[class*=typingDots] strong{padding-right:2px} /* Add some word spacing for better glance value */
 #app-mount main div[class*=typingDots] span{box-shadow:100px 0 0 0px var(--bodyColor);margin-bottom:5px;color:white;font-weight:bolder;border-top-left-radius:10px;border-bottom-left-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
-#app-mount form:after
-{
-  transition-property:left;transition-duration:1s;
-  content:"";position:absolute;
-  top:-17px;
-  left:100%;
-  height:2px;width:calc(100% - 540px);
-  border:4px solid var(--bodyColor);border-top-left-radius:10px;border-bottom-left-radius:10px;
-  background-color:var(--text-brand);
-  mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-}
-#app-mount form:has(div[class*=typingDots] div):after
-{
-  transition-property:left;transition-duration:1s;
-  content:"";position:absolute;
-  top:-17px;
-  left:30%;
-  height:2px;width:calc(100% - 540px);
-  border:4px solid var(--bodyColor);border-top-left-radius:10px;border-bottom-left-radius:10px;
-  background-color:var(--text-brand);
-  mask-image: -webkit-gradient(linear, right top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-}
 
 /* Read All button no longer clipped off */
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
