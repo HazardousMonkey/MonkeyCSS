@@ -2,7 +2,7 @@
 /* @import url("https://aushevahmad.github.io/awesome-css/modules/channeltweaks.css"); */
 /* @import url("https://aushevahmad.github.io/awesome-css/modules/hiddenthreads.css"); */
 /* @import url("https://aushevahmad.github.io/awesome-css/modules/compressbotmsgs.css"); */
-@import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css");
+/* @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css"); */
 
 
 /* Variable listings for the colors I use */
@@ -189,8 +189,8 @@ div[class*=newMessagesBar],div[class*=newTopicsBar]{background-color:var(--newMe
 li div[id*="message-reply-context"][class*="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
 
 /* Main Background */
-[class*=membersWrap] > div[class*=members]{background-color:var(--bodyColor)} /* Members List itself */
-[class*=membersWrap] > div[class*=members] div[class*=member]{background:transparent!important} /* Member listings - transparent background */
+aside[class*=membersWrap] > div[class*=members]{background-color:var(--bodyColor)} /* Members List itself */
+aside[class*=membersWrap] > div[class*=members] div[class*=member]{background:transparent!important} /* Member listings - transparent background */
 section[aria-label*=header], div[data-list-id*=private-channels], div[class*=searchBar]:has(button), nav[class*=container]{background-color:var(--sidebarColor)!important}
 div[class*=standardSidebarView] div[class*=contentRegion]{background:var(--sidebarColor)}
 div[aria-label*=Inbox] div[class*=messageContainer]{background-color:var(--sidebarColor)} /* Background for comments inside your inbox */
@@ -274,7 +274,7 @@ div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
 /* Other Channels & Channel Settings */
 #channels div[class*=modeMuted] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity)}
 div[class*=selectedChannel] div[class*=iconContainer] svg, div[class*=selectedChannel] div[class*=iconContainer]:before{opacity:100%!important}
-#channels div[class*=modeMuted] div[class*=iconContainer][aria-label*=Text (Active Threads)]:before{opacity:var(--mutedChannelIconOpacity)}
+/* #channels div[class*=modeMuted] div[class*=iconContainer][aria-label*=Text (Active Threads)]:before{opacity:var(--mutedChannelIconOpacity)} delete this? */
 #channels div[class*="iconContainer"][aria-label^="Announcements"] svg, #channels div[class*="iconContainer"][aria-label="Announcements (Limited)"] svg{color:var(--announcementsChannelColor)}
 #channels div[class*="iconContainer"][aria-label^="Forum"] svg, #channels div[class*="iconContainer"][aria-label="Forum (Limited)"] svg{color:var(--forumChannelColor)}
 #channels div[class*="iconContainer"][aria-label^="Rules"] svg{color:var(--rulesChannelColor)}
@@ -294,11 +294,6 @@ div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(3){border-ra
 div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(4){border-radius: 4px 4px 13px!important}
 */
 /* ----------- Misc ----------- */
-#app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
-#app-mount div[class^="chat-"]{background-color: #100326;} /* thread chat background color */
-#app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
-[class^="result"]:hover[aria-selected="true"][id^="quick-switcher"]{background-color: #dc143c98;color: gray!important;} /* ctrl-k hover color */
-[class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div, [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div svg{font-weight:bolder;color: white!important;}
 div[class*=hoverBarButton]{background-color: crimson;color: black!important} /* comment hover buttons */
 div[class*=hoverBarButton]:hover, div[class^="button"] div div[aria-expanded="true"]{background-color:var(--messageOptionsMenuButtonsColor)!important;color: white!important;} /* comment hover buttons -- clicked */
 div[class^="attachedBars"] div div div div{background: rgb(132, 12, 36)!important;color: white!important;} /* reply bar */
@@ -343,11 +338,23 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 
 /* --------------------- Fixes / Changes --------------------- */
 /* Quick switcher - now larger */
-body div[aria-label="Quick Switcher"] > div > div, body div[class*=quickswitcher]{height:100%!important;width:100%!important;max-width:1000px} /* body */
+/* Increase total size */
+body div[aria-label="Quick Switcher"] > div > div, body div[class*=quickswitcher]{height:100%!important;width:100%!important;max-width:1000px}
+/* Lift result limits */
 body div[class*=resultsArea]{height:calc(100% - 80px)}
-body div[class*=resultsArea] > div, body div[class*=resultsArea] div[role*=listbox]{max-height:100%;height:calc(100% - 16px);margin-right:0}/* lift result limits */
-body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px} /* allow larger names */
-body div[class*=protip]{position:absolute;bottom:-45px} /* move protip out of the box */
+body div[class*=resultsArea] > div, body div[class*=resultsArea] div[role*=listbox]{max-height:100%;height:calc(100% - 16px);margin-right:0}
+/* Search box */
+body input[aria-label="Quick Switcher"]{border:2px solid #dc143c98}
+/* result:hover */
+body div[class*=resultsArea] div[aria-selected=true]{background:unset} /* prevent lingering coloring */
+body div[class*=resultsArea] div[class*=result]:hover{background:#dc143c98;transition:none!important} /* ctrl-k hover color */
+body div[class*=resultsArea] div[class*=result]:hover div, div[class*=resultsArea] div[class*=result]:hover div svg{font-weight:bolder;color:white}
+/* Rightside -> Allow larger result names */
+body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px;background-color:var(--sidebarColor);opacity:100%;padding-left:10px}
+body div[aria-label="Quick Switcher"] div[class*=result] > div > div > div:hover div[class*=misc]{background-color:firebrick}
+/* Protip */
+body div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
+body div[class*=protip] a{display:none}
 
 /* Message Logger edit color */
 .messagelogger-edited, .messagelogger-edited a{color:var(--messageLoggerEditColor)!important}
