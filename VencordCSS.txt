@@ -22,16 +22,18 @@
   /* Text Channels */
   --textChannelColor:red;
   --textChannelWithThreadsColor:red;
-  --threadIdentifierContent:"*";
+  --threadIdentifierContent:"*";        /* Custom solution to show which text channels have active threads */
   --threadIdentifierFontSize:18px;
   /* Voice Channels */
   --voiceChannelColor:#297ddd;
   /* Other Channels & Settings */
-  --mutedChannelIconOpacity:40%;        /* Muted Channel Icon Opacity */
   --announcementsChannelColor:yellow; /* Announcements */
   --forumChannelColor:#ffa600;        /* Forums */
   --rulesChannelColor:darkturquoise;  /* Rules */
   --stageChannelColor:#d113eb;        /* Stage */
+  --mutedChannelIconOpacity:40%;        /* Muted Channel Icon Opacity */
+  --messageLoggerEditColor:#ffe7bbcc; /* MessageLogger plugin 'edit' color */
+  --bTypingLine:1;                      /* 1=Yes 0=No -- line for 'Is Typing' to increase glance value  */
   /* currently disabled - for server management channels */
   --eventChannelColor:gray;           /* Event */
   --channelsAndRolesColor:gray;       /* Channels & Roles */
@@ -66,18 +68,18 @@ button[aria-label="Output Options"],
 div[class*=hoverBarButton][aria-label*="Click to"], div[class*=buttonsInner] div[class*=separator], /* Removes the 3 suggested emotes from the quick-menu when hovering comments */
 ul[aria-label="Direct Messages"] div[class*=container]:has([aria-label*=Activity]), /* Resolve Mod 2factor banner size reducer*/
 ul[aria-label*="Direct Messages"] div[class*=sectionDiv], /* The section dividers for things that we've already deleted */
-/* Member's list */
+/* Members list */
 div[role=list][aria-label*=Members] > h3:has(div[class*=toggleExpand]),
 div[class*=container] > aside div[role=listitem]:has(div[class*=openOnHover]), /* Member's list Activities themselves */
-/* top bar */
+/* Top bar */
 div[class*=trail] a:has([aria-label="Help"]), /* F1 help button */
 div[role="button"][aria-label="Start Video Call"], /* video call button */
-/* message bar */
+div > div[class^=backForward], /* Back and Forward buttons */
+/* Message bar */
 form div[class*=channelBottomBarArea] > div > div > div div[aria-label="Send a gift"], /* nitro gift button */
 div[class*="app-launcher-entry"], /* Bottom right app button */
 div[class*="threadSuggestionBar"], /* thread creator tip */
 /* right-click messages */
-#message div div:has([aria-label*=Reaction]), /* Quick emotes */
 #message-add-reaction, #message div[role*=separator]:nth-child(3),
 #message-add-reaction-0, /* regular reaction button */
 #message-add-reaction-1, /* super reaction button */
@@ -91,7 +93,7 @@ div[class*="threadSuggestionBar"], /* thread creator tip */
 #user-context-add-friend, /* add friend  */
 #user-context-remove-friend, /* remove friend */
 div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM button */
-#user-context-invite-to-server{display:none!important} /* invite to server */
+#user-context-invite-to-server /* invite to server */{display:none!important}
 
 /* ------------- GENERAL THEMING (edited from a basic template) ------------- */
 .theme-dark, .theme-light{
@@ -169,21 +171,20 @@ div[class*=listItem]:has(div[class*=guildSep]), /* The line just under the DM bu
 /* ---------------------- MY General Theming ---------------------- */
 /* Right Click context menu line separators */
 div[class*=clickTrap] div[aria-label*=Actions] div[role=separator]{border-bottom:1px solid var(--borderColor)}
-/* App corner buttons */
+
+/* Discord program "close" button */
 div[class*=ButtonClose]{color:#dddddd}
-/*
-div[class*=ButtonMinMax][aria-label*=Max]{color:orange}
-div[class*=ButtonMinMax][aria-label*=Min]{color:blue}
-*/
 
 /* User Profiles */
 /* About Me Section */
-div[class*=overlay]:has(section){background-color:var(--sidebarColor);}
+div[class*=overlay]:has(section){background-color:var(--sidebarColor)}
+
 /* Reply, jumpToPresent & newMessage bar */
 div[class*=replyBar], div[class*=jumpToPresentBar]{background-color:var(--chatBarReplyAccentColor)!important}
-div[class*=jumpToPresentBar]{margin-right:20px;margin-bottom:15px;flex-flow:column;opacity:90%!important}
-div[class*=jumpToPresentBar] button{background-color:transparent!important;border:none!important}
+div[class*=jumpToPresentBar]{margin-right:30px;margin-bottom:30px;flex-flow:column;opacity:90%!important}
+div[class*=jumpToPresentBar] button{background-color:transparent;border:none}
 div[class*=newMessagesBar],div[class*=newTopicsBar]{background-color:var(--newMessageBannerColor)}
+
 /* Reply Arrow */
 li div[id*="message-reply-context"][class*="repliedMessage"] div{border-color:var(--commentReplyReferenceSplineColor)} /* message reply "arrow" */
 
@@ -202,6 +203,7 @@ span[class*=summaryEnd] div, span[class*=summaryEnd] svg{background-color:var(--
 div[class*=summaryDivider] div svg{background:var(--text-brand)}
 div[class*=summaryDivider] div svg{color:var(--bodyColor)}
 
+/* Folders (delete?) */
 foreignObject > div > div{background:var(--folderBackgroundColor)}
 span[class*=expandedFolderBackground]{background:var(--folderExpandedListBackgroundColor)}
 div[class*=children]:after{display:none!important}
@@ -213,7 +215,6 @@ div[class*=loadingCard], div[data-list-id*=forum-channel-list],
 div[data-list-id*=forum-channel-list] div[class*=container],
 div[class*=lock-screen-container],
 div[class*=nowPlayingColumn] > aside{background:var(--bodyColor)!important}
-
 /* Forums */
 div[class*=headerWithMatchingPosts], div[class*=matchingPostsRow], div[class*=mainCard]{background:transparent!important;border:0px transparent;}
 div[data-list-id*=forum-channel-list] div[class*=container]{border: 2px solid #53578767;border-radius: 20px;border-right-style:dashed;border-left-style:dashed;}
@@ -272,8 +273,8 @@ div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
 .vc-uvs-speaker{color:var(--voiceChannelColor);margin-right:1px;margin-left:1px}
 /* Other Channels & Channel Settings */
 #channels div[class*=modeMuted] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity)}
-div[class*=selectedChannel] div[class*="iconContainer"] svg, div[class*=selectedChannel] div[class*="iconContainer"]:before{opacity:100%!important}
-#channels div[class*=modeMuted] div[class^="iconContainer"][aria-label*="Text (Active Threads)"]:before{opacity:var(--mutedChannelIconOpacity)}
+div[class*=selectedChannel] div[class*=iconContainer] svg, div[class*=selectedChannel] div[class*=iconContainer]:before{opacity:100%!important}
+#channels div[class*=modeMuted] div[class*=iconContainer][aria-label*=Text (Active Threads)]:before{opacity:var(--mutedChannelIconOpacity)}
 #channels div[class*="iconContainer"][aria-label^="Announcements"] svg, #channels div[class*="iconContainer"][aria-label="Announcements (Limited)"] svg{color:var(--announcementsChannelColor)}
 #channels div[class*="iconContainer"][aria-label^="Forum"] svg, #channels div[class*="iconContainer"][aria-label="Forum (Limited)"] svg{color:var(--forumChannelColor)}
 #channels div[class*="iconContainer"][aria-label^="Rules"] svg{color:var(--rulesChannelColor)}
@@ -294,7 +295,7 @@ div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(4){border-ra
 */
 /* ----------- Misc ----------- */
 #app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
-#app-mount div[class^="chat-"]{background-color: rgb(16, 3, 38);} /* thread chat background color */
+#app-mount div[class^="chat-"]{background-color: #100326;} /* thread chat background color */
 #app-mount input[aria-label="Quick switcher"]{border: 5px solid #dc143c98!important;}
 [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"]{background-color: #dc143c98;color: gray!important;} /* ctrl-k hover color */
 [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div, [class^="result"]:hover[aria-selected="true"][id^="quick-switcher"] div svg{font-weight:bolder;color: white!important;}
@@ -333,27 +334,49 @@ div[id*=delete]:hover{background:rgba(178, 34, 34, 0.801)!important;color:white!
 /* message:hover left-side border */
 li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 {
-    content: "";
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    bottom: 0;
+    content: "";display:block;position:absolute;
+    top:0;bottom:0;left:0;
+    width:4px;
     pointer-events: none;
-    width: 4px;
-    background:var(--messageHoverBorderColor)!important;
+    background:var(--messageHoverBorderColor);
 }
 
 /* --------------------- Fixes / Changes --------------------- */
+/* Quick switcher - now larger */
+body div[aria-label="Quick Switcher"] > div > div, body div[class*=quickswitcher], body div[class*=resultsArea]{height:100%!important;width:100%!important;max-width:1000px} /* body */
+body div[class*=resultsArea] > div{overflow:visible!important;max-height:50%;height:50%;margin-right:0}/* lift result limits */
+body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute} /* allow larger names */
+body div[class*=protip]{position:absolute;bottom:-45px} /* move protip out of the box */
+
+/* Message Logger edit color */
+.messagelogger-edited, .messagelogger-edited a{color:var(--messageLoggerEditColor)!important}
+
 /* DMs - Move and minor styling changes to the "XXX user Is Typing" section */
-#app-mount main[aria-label=" (channel)"] div[class*=typingDots]{display:inline-block} /* Keeps the element on the left for DM chats */
-/* Servers */  
-#app-mount main div[class*=typingDots]{display:flex;flex-direction:row-reverse;padding-right:35px} /* Move element from the left to the right */
+/* #app-mount main[aria-label=" (channel)"] div[class*=typingDots]{display:inline-block} /* Keeps the element on the left for DM chats */
+/* Servers, etc */  
+div[class*=channelTextArea]{z-index:2} /* Keep chat bar on top */
+#app-mount main div[class*=typingDots]{display:flex;flex-direction:row-reverse;padding-right:35px;z-index:1} /* Move element from the left to the right */
 #app-mount main:has(div[class*=cooldownWrapper]) div[class*=typingDots]{padding-right:0px} /* Account for Slowmode channel text */
-#app-mount main div[class*=cooldownWrapper]{background:var(--bodyColor);z-index:1}
+#app-mount main div[class*=cooldownWrapper]{visibility:hidden;scale:150%;margin-right:-135px;margin-bottom:5px;padding-left:30px;z-index:1} /* slowmode remove text */
+#app-mount main div[class*=cooldownWrapper]:hover{visibility:visible;scale:125%;margin-right:20px;margin-bottom:0px;margin-left:25px;padding-left:0px;background-color:var(--bodyColor);box-shadow:5px 13px 0 10px var(--bodyColor)} /* slowmode text on hover */
+#app-mount main:has([class*=typingDots] div) div[class*=cooldownWrapper] svg{transition-property:background-color;transition-duration:0s;visibility:visible;color:var(--text-brand);background-color:var(--bodyColor);box-shadow:5px 9px 0 10px var(--bodyColor)} /* Trick keeping image visiable while text is invisible */
+#app-mount main div[class*=cooldownWrapper] svg{transition-property:background-color;transition:1s cubic-bezier(1,0,1,0);visibility:visible;color:var(--text-brand);background-color:transparent} /* No background while no typing */
+#app-mount main div[class*=cooldownWrapper] div{color:var(--text-brand)!important;font-weight:bolder} /* Change text color */
 #app-mount main div[class*=typingDots] > svg{display:none!important} /* Get rid of typing dots */
 #app-mount main div[class*=typingDots] strong{padding-right:2px} /* Add some word spacing for better glance value */
-#app-mount main div[class*=typingDots] span{box-shadow:100px 0 0 0px var(--bodyColor);margin-bottom:5px;color:white;font-weight:bolder;border-top-left-radius:10px;border-bottom-left-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent;background-color:var(--bodyColor)} /* Make "is typing..." more bold */
+#app-mount main div[class*=typingDots]:has(div) span{background-color:var(--bodyColor);box-shadow:40px 0 var(--bodyColor);margin-bottom:5px;color:white;font-weight:bolder;border-top-left-radius:10px;border-bottom-left-radius:10px;border:5px solid;border-bottom:0px;border-color:transparent} /* "is typing..." theming */
+/* Fancy line extends "Is Typing..." */
+#app-mount form:after /* No typing */
+{
+  transition-property:margin-right;transition-duration:1.25s;
+  content:"";position:absolute;
+  top:-13px;
+  right:0;margin-right:-425px;
+  height:2px;width:calc(var(--bTypingLine) * 425px);
+  background-color:var(--text-brand);
+  mask-image: -webkit-gradient(linear, right top, left top, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+ #app-mount form:has(div[class*=typingDots] div):after {margin-right:0px;transition-duration:1s} /* Yes typing */
 
 /* Read All button no longer clipped off */
 nav[aria-label*=sidebar]{margin-bottom:0px!important}
@@ -361,7 +384,7 @@ nav[aria-label*=sidebar]{margin-bottom:0px!important}
 /* Revert User-panel to PRE -March 25th 2025- theme */
 div[class*=sidebar]:has(div[class*=betterFolder]) section[aria-label*=User]{width:calc(100% - 134px);left:134px} /* Better Folders override in case you use Expansion */
 section[aria-label*=User]{width:calc(100% - 70px);left:70px;border:none;background-color:var(--sidebarColor)} /* Main repositioning & theming */
-section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:2px} /* Fix user area button spacing in oct 16th build */
+section[aria-label*=User] div:has(div[class*=avatarWrapper]){padding-left:3px} /* Fix user area button spacing in oct 16th build */
 section[aria-label*=User] > div div[class*=actionButton] button{padding:0px} /* Prevent button images from downscaling */
 section[aria-label*=User] div[class*=buttons]{gap:2px} /* Reduce button gap, allow for more user space */
 section[aria-label*=User] button:hover{transition-duration:.25s;transition-property:scale;scale: 110%;--__lottieIconColor:#a296e2} /* Button animations on Hover */
@@ -379,7 +402,7 @@ div[aria-label*=Settings] div[aria-label*=Voice]:hover, div[aria-label*=Settings
 div[class*=textContainer] code{text-wrap:pretty}
 
 /* VC viewer now mentions that clicking will take you to the channel, not join it */
-div[class*=tooltip-content]:has([class="vc-uvs-name"]):before{content:"Click to VIEW channel";text-align:center;color:var(--voiceChannelColor)}
+div[class*=tooltip-content]:has([class*=vc-uvs]):before{content:"Click to VIEW channel";text-align:center;color:var(--voiceChannelColor)}
 
 /* fill Mod View border radius gap  */
 div[class*=sidebarCont] div[class*=profile] div[class*=inner]{border-radius:0px}
