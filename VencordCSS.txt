@@ -343,9 +343,10 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 
 /* --------------------- Fixes / Changes --------------------- */
 /* Quick switcher - now larger */
-body div[aria-label="Quick Switcher"] > div > div, body div[class*=quickswitcher], body div[class*=resultsArea]{height:100%!important;width:100%!important;max-width:1000px} /* body */
-body div[class*=resultsArea] > div{overflow:visible!important;max-height:50%;height:50%;margin-right:0}/* lift result limits */
-body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute} /* allow larger names */
+body div[aria-label="Quick Switcher"] > div > div, body div[class*=quickswitcher]{height:100%!important;width:100%!important;max-width:1000px} /* body */
+body div[class*=resultsArea]{height:calc(100% - 80px)}
+body div[class*=resultsArea] > div, body div[class*=resultsArea] div[role*=listbox]{max-height:100%;height:calc(100% - 16px);margin-right:0}/* lift result limits */
+body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px} /* allow larger names */
 body div[class*=protip]{position:absolute;bottom:-45px} /* move protip out of the box */
 
 /* Message Logger edit color */
