@@ -353,8 +353,8 @@ body div[class*=resultsArea] div[class*=result]:hover div, div[class*=resultsAre
 body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px;background-color:var(--sidebarColor);opacity:100%;padding-left:10px}
 body div[aria-label="Quick Switcher"] div[class*=result] > div > div > div:hover div[class*=misc]{background-color:firebrick}
 /* Protip */
-body div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
-body div[class*=protip] a{display:none}
+body div[aria-label="Quick Switcher"] div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
+body div[aria-label="Quick Switcher"] div[class*=protip] a{display:none}
 
 /* Message Logger edit color */
 .messagelogger-edited, .messagelogger-edited a{color:var(--messageLoggerEditColor)!important}
