@@ -340,6 +340,21 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 }
 
 /* -------------------------------------------------- Fixes / Changes -------------------------------------------------- */
+/* Stream Previews - now larger on :hover */
+/* Increase size on :hover */
+body div[class*=streamPreviewWrapper]:hover > div > div{height:fit-content!important;width:fit-content!important}
+/* Prevent odd scaling */
+body div[id*=popout]:has([class*=streamPreview]){padding-left:15px}
+body div[class*=streamPreviewWrapper]{padding:0;will-change:height,width}
+div[class*=streamPreview]{width:fit-content!important;min-width:252px}
+/* Hover box-shadow */
+body div[class*=streamPreviewWrapper] > div{transition:box-shadow .1s;will-change:box-shadow}
+body div[class*=streamPreviewWrapper] > div:hover{box-shadow:0 0 25px 0px black}
+/* "watch stream" not obstructive */
+body div[class*=streamPreview] div[class*=previewHover]{background:transparent!important;text-shadow:0 0 5px black}
+/* Center buttons */
+body div[class*=streamPreview]:hover div[class*=body]{justify-content:center!important;margin-left:auto;margin-right:auto}
+
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
 body div[class*=layerContainer] div[class*=layer]:has([aria-label="Quick Switcher"]){justify-content:start;padding:0}
