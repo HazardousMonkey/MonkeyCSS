@@ -296,7 +296,7 @@ div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(2){border-ra
 div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(3){border-radius: 4px 4px 4px 13px!important}
 div[class*=closedFolderIconWrap] div[class*=iconSizeMini]:nth-child(4){border-radius: 4px 4px 13px!important}
 */
-/* ----------- Misc ----------- */
+/* --------------------------- Misc --------------------------- */
 div[class*=hoverBarButton]{background-color:crimson;color:black!important} /* comment hover buttons */
 div[class*=hoverBarButton]:hover, div[class^="button"] div div[aria-expanded="true"]{background-color:var(--messageOptionsMenuButtonsColor)!important;color: white!important;} /* comment hover buttons -- clicked */
 div[class^="attachedBars"] div div div div{background: rgb(132, 12, 36)!important;color: white!important;} /* reply bar */
@@ -339,21 +339,30 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
     background:var(--messageHoverBorderColor);
 }
 
-/* -------------------------------------------------- Fixes / Changes -------------------------------------------------- */
+/* -------------------------------------------------- Fixes, Major adjustments, and Changes -------------------------------------------------- */
+/* VC status is now on the left */
+nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
+
 /* Stream Previews - now larger on :hover */
+/* Removals */
+body div[class*=streamPreview]:hover div[class*=body] button:has([class*=buttonChild]),
+body div[class*=streamPreview]:hover div[class*=body] div[class*=protip],
+lmao{display:none!important}
 /* Increase size on :hover */
-body div[class*=streamPreviewWrapper]:hover > div > div{height:fit-content!important;width:fit-content!important}
+body div[class*=streamPreviewWrapper]:hover > div > div{height:fit-content;width:fit-content}
+body div[class*=streamPreviewWrapper] > div:hover:before{content:"Watch Stream";color:white;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--borderColor);padding:8px;border:1px solid var(--sidebarColor);box-shadow:0 0 25px 0px black;border-top-left-radius:5px;border-top-right-radius:5px}
+/* "watch stream" not obstructive */
+body div[class*=streamPreview] div[class*=previewHover]{background:transparent;text-shadow:0 0 5px black;transition:none;opacity:0%!important}
 /* Prevent odd scaling */
 body div[id*=popout]:has([class*=streamPreview]){padding-left:15px}
 body div[class*=streamPreviewWrapper]{padding:0;will-change:height,width}
 div[class*=streamPreview]{width:fit-content!important;min-width:252px}
 /* Hover box-shadow */
 body div[class*=streamPreviewWrapper] > div{transition:box-shadow .1s;will-change:box-shadow}
-body div[class*=streamPreviewWrapper] > div:hover{box-shadow:0 0 25px 0px black}
-/* "watch stream" not obstructive */
-body div[class*=streamPreview] div[class*=previewHover]{background:transparent!important;text-shadow:0 0 5px black}
+body div[class*=streamPreviewWrapper] > div:hover{box-shadow:0 0 15px 0px black}
 /* Center buttons */
-body div[class*=streamPreview]:hover div[class*=body]{justify-content:center!important;margin-left:auto;margin-right:auto}
+body div[class*=streamPreview]:hover div[class*=body]{justify-content:center;margin-left:auto;margin-right:auto;padding:0}
+body div[class*=streamPreview]:hover div[class*=body] div[class*=activityStreamPreview]{top:5px;position:relative}
 
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
