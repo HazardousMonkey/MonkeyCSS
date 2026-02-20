@@ -350,21 +350,22 @@ body div[class*=streamPreview]:hover div[class*=body] div[class*=protip],
 lmao{display:none!important}
 /* Increase size on :hover */
 body div[class*=streamPreviewWrapper] > div:hover:before{content:"Watch Stream";color:white;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--borderColor);padding:8px;border:1px solid var(--sidebarColor);box-shadow:0 0 15px 0px black;border-top-left-radius:5px;border-top-right-radius:5px}
-body div[class*=streamPreviewWrapper]:hover > div > div:not([class*=body]){height:fit-content;width:fit-content;min-width:252px;min-height:142px;border-radius:0} /* stream image container */
+body div[class*=streamPreviewWrapper]:hover div[class*=previewContainer]{clip-path:rect(0px 100% calc(100% - 3px) 0px);height:fit-content;min-width:252px;min-height:142px;border-radius:0px} /* stream image container */
+body div[id*=popout]:has([class*=streamPreview]) > div > div > div > div{width:fit-content;height:fit-content;min-width:252px} /* passive preview sizing */
+body div[id*=popout]:has([class*=streamPreview]) > div > div > div > div:hover{border-radius:0} /* remove border radius */
 body div[class*=streamPreviewWrapper]:hover > div > div[class*=body]{width:fit-content} /* lower "body" */
 /* "watch stream" not obstructive */
 body div[class*=streamPreview] div[class*=previewHover]{background:transparent;text-shadow:0 0 5px black;transition:none;opacity:0%!important}
 /* Prevent odd scaling */
 body div[id*=popout]:has([class*=streamPreview]){padding-left:15px;margin-top:-60px} /* MAIN BODY */
-body div[id*=popout]:has([class*=streamPreview]) > div:hover{margin-top:-60px}
+body div[id*=popout]:has([class*=streamPreview]):not(:has([class*=emptyPreviewContainer])) > div:hover{margin-top:-60px}
 body div[class*=streamPreviewWrapper]{padding:0;will-change:height,width}
-body div[id*=popout] div[class*=streamPreview]{width:fit-content!important;min-width:252px}
 /* Hover box-shadow */
 body div[class*=streamPreviewWrapper] > div{transition:box-shadow .1s;will-change:box-shadow}
-body div[class*=streamPreviewWrapper] > div:hover{box-shadow:0 0 15px 0px black}
+/* body div[class*=streamPreviewWrapper] > div:hover{box-shadow:0 0 15px 0px black}
 /* Center buttons */
 body div[class*=streamPreview]:hover div[class*=body]{justify-content:center;margin-left:auto;margin-right:auto;padding:0}
-body div[class*=streamPreview]:hover div[class*=body] div[class*=activityStreamPreview]{top:5px;position:relative}
+body div[class*=streamPreview]:hover div[class*=body] div[class*=activityStreamPreview]{top:3px;position:relative}
 
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
