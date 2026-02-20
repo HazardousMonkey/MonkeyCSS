@@ -349,8 +349,9 @@ body div[class*=streamPreview]:hover div[class*=body] button:has([class*=buttonC
 body div[class*=streamPreview]:hover div[class*=body] div[class*=protip],
 lmao{display:none!important}
 /* Increase size on :hover */
-body div[class*=streamPreviewWrapper]:hover > div > div:not([class*=body]){height:fit-content;width:fit-content;min-width:252px;min-height:142px}
 body div[class*=streamPreviewWrapper] > div:hover:before{content:"Watch Stream";color:white;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--borderColor);padding:8px;border:1px solid var(--sidebarColor);box-shadow:0 0 15px 0px black;border-top-left-radius:5px;border-top-right-radius:5px}
+body div[class*=streamPreviewWrapper]:hover > div > div:not([class*=body]){height:fit-content;width:fit-content;min-width:252px;min-height:142px;border-radius:0} /* stream image container */
+body div[class*=streamPreviewWrapper]:hover > div > div[class*=body]{width:fit-content} /* lower "body" */
 /* "watch stream" not obstructive */
 body div[class*=streamPreview] div[class*=previewHover]{background:transparent;text-shadow:0 0 5px black;transition:none;opacity:0%!important}
 /* Prevent odd scaling */
