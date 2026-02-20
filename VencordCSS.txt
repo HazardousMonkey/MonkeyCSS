@@ -357,7 +357,7 @@ body div[class*=streamPreview] div[class*=previewHover]{background:transparent;t
 body div[id*=popout]:has([class*=streamPreview]){padding-left:15px;margin-top:-60px} /* MAIN BODY */
 body div[id*=popout]:has([class*=streamPreview]) > div:hover{margin-top:-60px}
 body div[class*=streamPreviewWrapper]{padding:0;will-change:height,width}
-div[class*=streamPreview]{width:fit-content!important;min-width:252px}
+body div[id*=popout] div[class*=streamPreview]{width:fit-content!important;min-width:252px}
 /* Hover box-shadow */
 body div[class*=streamPreviewWrapper] > div{transition:box-shadow .1s;will-change:box-shadow}
 body div[class*=streamPreviewWrapper] > div:hover{box-shadow:0 0 15px 0px black}
