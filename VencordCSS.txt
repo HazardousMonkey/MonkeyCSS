@@ -359,14 +359,15 @@ body div[class*=mounted] div[class*=body] button:has([class*=buttonChild]),
 body div[class*=mounted] div[class*=body] div[class*=protip]{display:none!important}
 body div[class*=mount] div[class*=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
 /* The Meat -- top to bottom strutcute of the Stream Preview system #1 -> #8 */
-body div[id*=popout]:has([class*=streamPreview]){padding-left:8px;margin-top:-125px} /* MAIN popout #1 */
+body div[id*=popout]:has([class*=streamPreview]):not(:has([class*=emptyPreviewContainer])){padding-left:8px;margin-top:-125px} /* MAIN popout #1 */
+body div[id*=popout]:has([class*=emptyPreviewContainer]){padding-left:8px;margin-top:-60px} /* same but stream "hasn't started" */
 body div[class*=didRender]{} /* popout > "didRender" #2 */
 body div[class*=mounted]:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
 body div[class*=mounted]{padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
 body div[class*=mounted]:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
 body div[class*=mounted] > div[class*=streamPreviewWrapper]{} /* streamPreviewWrapper #4 */
 body div[class*=mounted] > div[class*=streamPreviewWrapper] > div{width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
-body div[class*=mounted] div[class*=previewContainer]{height:100%} /* previewContainer #6 */
+body div[class*=mounted] div[class*=previewContainer]:not(:has([class*=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
 body div[class*=mounted] div[class*=previewImage]{} /* previewImage #7 */
 body div[class*=mounted] img{display:block} /* stream image #8 */
 /* Center buttons */
