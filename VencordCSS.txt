@@ -349,7 +349,7 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 
 /* -------------------------------------------------- Fixes, Major adjustments, and Changes -------------------------------------------------- */
 /* VC status is now on the left */
-nav ul li div[class*=iconGroup]:has(img, path){position:absolute;left:-19px}
+nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
 
 /* Stream Previews - now larger on :hover */
 /* Removals */
