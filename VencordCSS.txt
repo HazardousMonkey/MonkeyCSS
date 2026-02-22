@@ -325,10 +325,10 @@ section[role="dialog"][class^="contentWrapper-"]{background-color: rgb(36, 31, 4
 #message-edit:hover{background-color:rgba(250, 67, 0, 0.621);color: white;fill:white}
 #user-context-mod-view{background-color:rgb(118, 0, 228);color: white;font-weight:bolder;text-transform:uppercase!important;text-align:center;} /* mod view */
 #user-context-mod-view:hover{background-color:rgb(99, 0, 192);color: white}
-div[id*="copy-id"]:nth-child(1){color: rgb(255, 221, 0);text-align: center;} /* copy User ID button */
-div[id*="copy-id"]:nth-child(1):hover,div[id*="copy-id"]:hover path{background: rgb(255, 221, 0);color:black;fill:black;font-weight:bolder}
-div[id*="copy-id"]:nth-child(2){color: rgb(255, 170, 0);text-align: center;} /* copy Channel ID button */
-div[id*="copy-id"]:nth-child(2):hover,div[id*="copy-id"]:hover path{background: rgb(255, 170, 0);color:black;fill:black;font-weight:bolder}
+div[id*="copy-id"]:nth-child(1){color:#ffdd00;text-align: center;} /* copy User ID button */
+div[id*="copy-id"]:nth-child(1):hover,div[id*="copy-id"]:hover path{background:#ffdd00;color:black;fill:black;font-weight:bolder}
+div[id*="copy-id"]:nth-child(2){color:#ffaa00;text-align: center;} /* copy Channel ID button */
+div[id*="copy-id"]:nth-child(2):hover,div[id*="copy-id"]:hover path{background:#ffaa00;color:black;fill:black;font-weight:bolder}
 div[id*="textarea-context-correction"]{background: rgba(220, 20, 60, 0.628)!important;color: white!important;font-weight:bolder!important;}
 div[id*="textarea-context-correction"]:hover{background: crimson!important;font-weight:600!important;}
 #app-mount button[aria-label^="Send Message"]:disabled div, #app-mount button[aria-label^="Send Message"]:disabled svg{background:transparent!important;color: gray!important;} /* Message Send Button DISABLED */
@@ -349,7 +349,7 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 
 /* -------------------------------------------------- Fixes, Major adjustments, and Changes -------------------------------------------------- */
 /* VC status is now on the left */
-nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
+nav ul li div[class*=iconGroup]:has(img, path){position:absolute;left:-19px}
 
 /* Stream Previews - now larger on :hover */
 /* Removals */
@@ -372,7 +372,7 @@ nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
 /* Center buttons */
 #app-mount div[class*=mounted] div[class*=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
 #app-mount div[class*=mounted] div[class*=body] div[class*=activityStreamPreview]{top:4px;position:relative}
-/* Stream channel is full */
+/* Stream channel -- No Acess */
 #app-mount div[class*=mounted]:not(:has(div[class*=previewHover])):before{content:"No Access";left:calc(50% - 45px);background:var(--discordRed);box-shadow:0 0 50px -5px var(--discordRed)}
 #app-mount div[class*=mounted]:not(:has(div[class*=previewHover])) > div[class*=streamPreviewWrapper] > div:before{border-image:linear-gradient(to bottom,var(--discordRed), transparent) 1}
 #app-mount div[class*=mounted]:not(:has(div[class*=previewHover])):hover{box-shadow:0 0 50px -10px var(--discordRed)}
