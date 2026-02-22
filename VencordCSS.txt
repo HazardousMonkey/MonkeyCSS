@@ -276,9 +276,9 @@ div[class*=interactive]:hover div[class*=content]{color:#9ea4eb}
 #channels div[class*="iconContainer"][aria-label*="Voice"] svg{color:var(--voiceChannelColor)}
 #channels div[class*="iconContainer"][aria-label*="Voice (Locked)"] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity);}
 /* server-icon:hover tooltip > VC */
-body div > div[class*=guildTooltipWrapper] svg:has(path[d="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0-.74.32L5.92 7H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.92l4.28 4.68a1 1 0 0 0 .74.32H11a1 1 0 0 0 1-1V3ZM15.1 20.75c-.58.14-1.1-.33-1.1-.92v-.03c0-.5.37-.92.85-1.05a7 7 0 0 0 0-13.5A1.11 1.11 0 0 1 14 4.2v-.03c0-.6.52-1.06 1.1-.92a9 9 0 0 1 0 17.5Z"]){color:var(--voiceChannelColor)}
+#app-mount div > div[class*=guildTooltipWrapper] svg:has(path[d="M12 3a1 1 0 0 0-1-1h-.06a1 1 0 0 0-.74.32L5.92 7H3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2.92l4.28 4.68a1 1 0 0 0 .74.32H11a1 1 0 0 0 1-1V3ZM15.1 20.75c-.58.14-1.1-.33-1.1-.92v-.03c0-.5.37-.92.85-1.05a7 7 0 0 0 0-13.5A1.11 1.11 0 0 1 14 4.2v-.03c0-.6.52-1.06 1.1-.92a9 9 0 0 1 0 17.5Z"]){color:var(--voiceChannelColor)}
 /* server-icon:hover tooltip > LIVE */
-body div > div[class*=guildTooltipWrapper] svg:has(path[d="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5Zm16 3a1 1 0 0 0-.3-.7l-3-3a1 1 0 1 0-1.4 1.4L14.58 7H13a6 6 0 0 0-6 6 1 1 0 1 0 2 0 4 4 0 0 1 4-4h1.59l-1.3 1.3a1 1 0 0 0 1.42 1.4l3-3A1 1 0 0 0 18 8Z"]){color:var(--discordRed)}
+#app-mount div > div[class*=guildTooltipWrapper] svg:has(path[d="M2 5a3 3 0 0 1 3-3h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V5Zm16 3a1 1 0 0 0-.3-.7l-3-3a1 1 0 1 0-1.4 1.4L14.58 7H13a6 6 0 0 0-6 6 1 1 0 1 0 2 0 4 4 0 0 1 4-4h1.59l-1.3 1.3a1 1 0 0 0 1.42 1.4l3-3A1 1 0 0 0 18 8Z"]){color:var(--discordRed)}
 .vc-uvs-speaker{color:var(--voiceChannelColor);margin-right:1px;margin-left:1px}
 /* Other Channels & Channel Settings */
 #channels div[class*=modeMuted] svg:not([class*=hidden]){opacity:var(--mutedChannelIconOpacity)}
@@ -289,9 +289,9 @@ div[class*=selectedChannel] div[class*=iconContainer] svg, div[class*=selectedCh
 #channels div[class*="iconContainer"][aria-label^="Rules"] svg{color:var(--rulesChannelColor)}
 #channels div[class*="iconContainer"][aria-label^="Stage"] svg, #channels div[class*="iconContainer"][aria-label*="Stage (Limited)"] svg path{color:var(--stageChannelColor)}
 /* server-icon:hover tooltip > Stage */
-body div > div[class*=guildTooltipWrapper] svg:has(path[d="M19.61 18.25a1.08 1.08 0 0 1-.07-1.33 9 9 0 1 0-15.07 0c.26.42.25.97-.08 1.33l-.02.02c-.41.44-1.12.43-1.46-.07a11 11 0 1 1 18.17 0c-.33.5-1.04.51-1.45.07l-.02-.02Z"]){color:var(--stageChannelColor)}
+#app-mount div > div[class*=guildTooltipWrapper] svg:has(path[d="M19.61 18.25a1.08 1.08 0 0 1-.07-1.33 9 9 0 1 0-15.07 0c.26.42.25.97-.08 1.33l-.02.02c-.41.44-1.12.43-1.46-.07a11 11 0 1 1 18.17 0c-.33.5-1.04.51-1.45.07l-.02-.02Z"]){color:var(--stageChannelColor)}
 /* server-icon:hover tooltip > Actiities */
-body div > div[class*=guildTooltipWrapper] svg:has(path[d="M2.06 7.61c-.25.95.31 1.92 1.26 2.18l4.3 1.15c.94.25 1.91-.31 2.17-1.26l1.15-4.3c.25-.94-.31-1.91-1.26-2.17l-4.3-1.15c-.94-.25-1.91.31-2.17 1.26l-1.15 4.3ZM12.98 7.87a2 2 0 0 0 1.75 2.95H20a2 2 0 0 0 1.76-2.95l-2.63-4.83a2 2 0 0 0-3.51 0l-2.63 4.83ZM5.86 13.27a.89.89 0 0 1 1.28 0l.75.77a.9.9 0 0 0 .54.26l1.06.12c.5.06.85.52.8 1.02l-.13 1.08c-.02.2.03.42.14.6l.56.92c.27.43.14 1-.28 1.26l-.9.58a.92.92 0 0 0-.37.48l-.36 1.02a.9.9 0 0 1-1.15.57l-1-.36a.89.89 0 0 0-.6 0l-1 .36a.9.9 0 0 1-1.15-.57l-.36-1.02a.92.92 0 0 0-.37-.48l-.9-.58a.93.93 0 0 1-.28-1.26l.56-.93c.11-.17.16-.38.14-.59l-.12-1.08c-.06-.5.3-.96.8-1.02l1.05-.12a.9.9 0 0 0 .54-.26l.75-.77ZM18.52 13.71a1.1 1.1 0 0 0-2.04 0l-.46 1.24c-.19.5-.57.88-1.07 1.07l-1.24.46a1.1 1.1 0 0 0 0 2.04l1.24.46c.5.19.88.57 1.07 1.07l.46 1.24c.35.95 1.7.95 2.04 0l.46-1.24c.19-.5.57-.88 1.07-1.07l1.24-.46a1.1 1.1 0 0 0 0-2.04l-1.24-.46a1.8 1.8 0 0 1-1.07-1.07l-.46-1.24Z"]){color:var(--forumChannelColor)}
+#app-mount div > div[class*=guildTooltipWrapper] svg:has(path[d="M2.06 7.61c-.25.95.31 1.92 1.26 2.18l4.3 1.15c.94.25 1.91-.31 2.17-1.26l1.15-4.3c.25-.94-.31-1.91-1.26-2.17l-4.3-1.15c-.94-.25-1.91.31-2.17 1.26l-1.15 4.3ZM12.98 7.87a2 2 0 0 0 1.75 2.95H20a2 2 0 0 0 1.76-2.95l-2.63-4.83a2 2 0 0 0-3.51 0l-2.63 4.83ZM5.86 13.27a.89.89 0 0 1 1.28 0l.75.77a.9.9 0 0 0 .54.26l1.06.12c.5.06.85.52.8 1.02l-.13 1.08c-.02.2.03.42.14.6l.56.92c.27.43.14 1-.28 1.26l-.9.58a.92.92 0 0 0-.37.48l-.36 1.02a.9.9 0 0 1-1.15.57l-1-.36a.89.89 0 0 0-.6 0l-1 .36a.9.9 0 0 1-1.15-.57l-.36-1.02a.92.92 0 0 0-.37-.48l-.9-.58a.93.93 0 0 1-.28-1.26l.56-.93c.11-.17.16-.38.14-.59l-.12-1.08c-.06-.5.3-.96.8-1.02l1.05-.12a.9.9 0 0 0 .54-.26l.75-.77ZM18.52 13.71a1.1 1.1 0 0 0-2.04 0l-.46 1.24c-.19.5-.57.88-1.07 1.07l-1.24.46a1.1 1.1 0 0 0 0 2.04l1.24.46c.5.19.88.57 1.07 1.07l.46 1.24c.35.95 1.7.95 2.04 0l.46-1.24c.19-.5.57-.88 1.07-1.07l1.24-.46a1.1 1.1 0 0 0 0-2.04l-1.24-.46a1.8 1.8 0 0 1-1.07-1.07l-.46-1.24Z"]){color:var(--forumChannelColor)}
 /* Server management channels
 #channels div:has(div[aria-label*=Events]) svg{color:var(--eventChannelColor)}
 #channels div:has(div[aria-label*=Channels]) svg{color:var(--channelsAndRolesColor)}
@@ -325,8 +325,6 @@ section[role="dialog"][class^="contentWrapper-"]{background-color: rgb(36, 31, 4
 #message-edit:hover{background-color:rgba(250, 67, 0, 0.621);color: white;fill:white}
 #user-context-mod-view{background-color:rgb(118, 0, 228);color: white;font-weight:bolder;text-transform:uppercase!important;text-align:center;} /* mod view */
 #user-context-mod-view:hover{background-color:rgb(99, 0, 192);color: white}
-button[aria-label*="Mod View"]{transition: box-shadow .125s ease-out;color: white;background-color: rgb(118, 0, 228);box-shadow: 1px 0 15px 1px black} /* mod view profile button */
-button[aria-label*="Mod View"]:hover{transition: box-shadow .125s ease-out;color: white;background-color:rgb(118, 0, 228);box-shadow: 0 0 15px 1px rgb(255, 255, 255)}
 div[id*="copy-id"]:nth-child(1){color: rgb(255, 221, 0);text-align: center;} /* copy User ID button */
 div[id*="copy-id"]:nth-child(1):hover,div[id*="copy-id"]:hover path{background: rgb(255, 221, 0);color:black;fill:black;font-weight:bolder}
 div[id*="copy-id"]:nth-child(2){color: rgb(255, 170, 0);text-align: center;} /* copy Channel ID button */
@@ -355,45 +353,46 @@ nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
 
 /* Stream Previews - now larger on :hover */
 /* Removals */
-body div[class*=mounted] div[class*=body] button:has([class*=buttonChild]),
-body div[class*=mounted] div[class*=body] div[class*=protip]{display:none!important}
-body div[class*=mount] div[class*=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
+#app-mount div[class*=mounted] div[class*=body] button:has([class*=buttonChild]),
+#app-mount div[class*=mounted] div[class*=body] div[class*=protip]{display:none!important}
+#app-mount div[class*=mount] div[class*=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
 /* The Meat -- top to bottom strutcute of the Stream Preview system #1 -> #8 */
-body div[id*=popout]:has([class*=streamPreview]):not(:has([class*=emptyPreviewContainer])){padding-left:8px;margin-top:-125px} /* MAIN popout #1 */
-body div[id*=popout]:has([class*=emptyPreviewContainer]){padding-left:8px;margin-top:-60px} /* same but stream "hasn't started" */
-body div[class*=didRender]{} /* popout > "didRender" #2 */
-body div[class*=mounted]:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
-body div[class*=mounted]{padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
-body div[class*=mounted]:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
-body div[class*=mounted] > div[class*=streamPreviewWrapper]{} /* streamPreviewWrapper #4 */
-body div[class*=mounted] > div[class*=streamPreviewWrapper] > div{width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
-body div[class*=mounted] div[class*=previewContainer]:not(:has([class*=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
-body div[class*=mounted] div[class*=previewImage]{} /* previewImage #7 */
-body div[class*=mounted] img{display:block} /* stream image #8 */
+#app-mount div[id*=popout]:has([class*=streamPreview]):not(:has([class*=emptyPreviewContainer])){padding-left:16px;margin-top:-125px} /* MAIN popout #1 */
+#app-mount div[id*=popout]:has([class*=emptyPreviewContainer]){padding-left:16px;margin-top:-60px} /* same but stream "hasn't started" */
+/* #app-mount div[class*=didRender]{} /* popout > "didRender" #2 */
+#app-mount div[class*=mounted]:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
+#app-mount div[class*=mounted]{padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
+#app-mount div[class*=mounted]:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
+/* #app-mount div[class*=mounted] > div[class*=streamPreviewWrapper]{} /* streamPreviewWrapper #4 */
+#app-mount div[class*=mounted] > div[class*=streamPreviewWrapper] > div{width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
+#app-mount div[class*=mounted] > div[class*=streamPreviewWrapper] > div:before{left:-2px;top:-3px;border:2px solid;border-top-width:3px;border-image:linear-gradient(to bottom,var(--discordGreen), transparent) 1;position:absolute;content:"";height:100%;width:100%} /* border around stream */
+#app-mount div[class*=mounted] div[class*=previewContainer]:not(:has([class*=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
+/* #app-mount div[class*=mounted] div[class*=previewImage]{} /* previewImage #7 */
+#app-mount div[class*=mounted] img{display:block} /* stream image #8 */
 /* Center buttons */
-body div[class*=mounted] div[class*=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
-body div[class*=mounted] div[class*=body] div[class*=activityStreamPreview]{top:4px;position:relative}
+#app-mount div[class*=mounted] div[class*=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
+#app-mount div[class*=mounted] div[class*=body] div[class*=activityStreamPreview]{top:4px;position:relative}
 
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
-body div[class*=layerContainer] div[class*=layer]:has([aria-label="Quick Switcher"]){justify-content:start;padding:0}
-body div[data-dialog=modal] div[class*=outerContainer]:has([aria-label="Quick Switcher"]){height:100%}
-body div[aria-label="Quick Switcher"] > div > div, body div[class*=quickswitcher]{max-height:100%!important;width:100%!important;max-width:1000px} /* sizing */
+#app-mount div[class*=layerContainer] div[class*=layer]:has([aria-label="Quick Switcher"]){justify-content:start;padding:0}
+#app-mount div[data-dialog=modal] div[class*=outerContainer]:has([aria-label="Quick Switcher"]){height:100%}
+#app-mount div[aria-label="Quick Switcher"] > div > div, #app-mount div[class*=quickswitcher]{max-height:100%!important;width:100%!important;max-width:1000px} /* sizing */
 /* Lift result limits */
-body div[class*=resultsArea]{height:fit-content}
-body div[class*=resultsArea] > div, body div[class*=resultsArea] div[role*=listbox]{max-height:calc(100vh - 230px);height:fit-content;margin-right:0;transition:height .25s;will-change:height}
+#app-mount div[class*=resultsArea]{height:fit-content}
+#app-mount div[class*=resultsArea] > div, #app-mount div[class*=resultsArea] div[role*=listbox]{max-height:calc(100vh - 230px);height:fit-content;margin-right:0;transition:height .25s;will-change:height}
 /* Search box */
 body input[aria-label="Quick Switcher"]{border:2px solid #dc143c98}
 /* result:hover */
-body div[class*=resultsArea] div[aria-selected=true]{background:unset} /* prevent lingering coloring */
-body div[class*=resultsArea] div[class*=result]:hover{background:#dc143c98;transition:none!important} /* ctrl-k hover color */
-body div[class*=resultsArea] div[class*=result]:hover div, div[class*=resultsArea] div[class*=result]:hover div svg{font-weight:bolder;color:white}
+#app-mount div[class*=resultsArea] div[aria-selected=true]{background:unset} /* prevent lingering coloring */
+#app-mount div[class*=resultsArea] div[class*=result]:hover{background:#dc143c98;transition:none!important} /* ctrl-k hover color */
+#app-mount div[class*=resultsArea] div[class*=result]:hover div, div[class*=resultsArea] div[class*=result]:hover div svg{font-weight:bolder;color:white}
 /* Rightside -> Allow larger result names */
-body div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px;background-color:var(--sidebarColor);opacity:100%;padding-left:10px}
-body div[aria-label="Quick Switcher"] div[class*=result] > div > div > div:hover div[class*=misc]{background-color:firebrick}
+#app-mount div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px;background-color:var(--sidebarColor);opacity:100%;padding-left:10px}
+#app-mount div[aria-label="Quick Switcher"] div[class*=result] > div > div > div:hover div[class*=misc]{background-color:firebrick}
 /* Protip */
-body div[aria-label="Quick Switcher"] div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
-body div[aria-label="Quick Switcher"] div[class*=protip] a{display:none}
+#app-mount div[aria-label="Quick Switcher"] div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
+#app-mount div[aria-label="Quick Switcher"] div[class*=protip] a{display:none}
 
 /* Message Logger edit color */
 .messagelogger-edited, .messagelogger-edited a{color:var(--messageLoggerEditColor)!important}
@@ -479,171 +478,5 @@ nav div[class*=linkTop] > div[aria-label*=icon]{padding-right:6px}
 /* fix buttons having bad backgrounds */
 div[class^="buttonContainer"] div div{background:transparent}
 
-/* This makes Typing channels have some background color a[class*=link]:has(div[class*=typing]):before{background: rgba(175, 29, 29, 0.048);border-radius: 3px;}
-*/
-
 /* Server Counter  */
 #vc-guildcount{color:#006eff!important;font-size: 20px!important;margin:-5px;margin-left: 20px;text-align: left!important;word-spacing:40px;text-wrap:nowrap!important}
-
-/* Server Perm custom banner  plugin changes
-span[data-tag~=owner]:not([class*=botTagCozy]){color: white;background:#9f1def}
-span[data-tag~=admin]:not([class*=botTagCozy]){color: white;background:#ff7300d7}
-span[data-tag~=staff]:not([class*=botTagCozy]){visibility:hidden;margin-left:-50px;}
-span:has(span[data-tag~=staff][class*=botTagCompact]):before
-{
-  content:"Server Mod";
-  margin-left: 4px;
-  visibility: visible;
-  position:relative;
-  color: white;
-  background:rgba(46, 204, 112, 0.733);
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-span[data-tag^="mod"]:not([class*=botTagCozy]){visibility:hidden;margin-left: -40px}
-span:has(span[data-tag^="mod"][class*=botTagCompact]):before
-{
-  content:"Chat Mod";
-  margin-left: 4px;
-  visibility: visible;
-  position:relative;
-  color: white;
-  background:firebrick;
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-span[data-tag~=vc]:not([class*=botTagCozy]){visibility: hidden;margin-left: -63px;}
-span:has(span[data-tag~=vc][class*=botTagCompact]):before
-{
-  content:"VC MOD";
-  margin-left: 4px;
-  visibility: visible;
-  position:relative;
-  color: rgb(63, 179, 179);
-  background:#354946;
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-/* Cozy
-span[data-tag~=owner]:is([class*=botTagCozy]){visibility: hidden; margin-left: -50px;}
-span:has(span[data-tag~=owner][class*=botTagCozy]):after
-{
-  content:"OWNER";
-  visibility: visible;
-  position:relative;
-  color: white;
-  background:#9f1def;
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  margin-left: 6px;
-  margin-right: -2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-span[data-tag~=admin]:is([class*=botTagCozy]){color: white;background:#ff7300d7;visibility: hidden;margin-left: -50px;}
-span:has(span[data-tag~=admin][class*=botTagCozy]):after
-{
-  content:"ADMIN";
-  visibility: visible;
-  position:relative;
-  color: white;
-  background:#ff7300d7;
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  margin-left: 6px;
-  margin-right: -2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-span[data-tag~=staff]:is([class*=botTagCozy]){visibility:hidden;margin-left:-45px;}
-span:has(span[data-tag~=staff][class*=botTagCozy]):after
-{
-  content:"Server Mod";
-  visibility: visible;
-  position:relative;
-  color: white;
-  background:rgba(46, 204, 112, 0.733);
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  margin-left: 6px;
-  margin-right: -2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-span[data-tag^="mod"]:is([class*=botTagCozy]){visibility:hidden;margin-left: -40px}
-span:has(span[data-tag^="mod"][class*=botTagCozy]):after
-{
-  content:"Chat Mod";
-  visibility: visible;
-  position:relative;
-  color: white;
-  background:firebrick;
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  margin-left: 6px;
-  margin-right: -2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-span[data-tag~=vc]:is([class*=botTagCozy]){visibility: hidden;margin-left: -55px;}
-span:has(span[data-tag~=vc][class*=botTagCozy]):after
-{
-  content:"VC MOD";
-  visibility: visible;
-  position:relative;
-  color: rgb(63, 179, 179);
-  background:#354946;
-  border-radius: 4px;
-  font-size: 12px;
-  min-width: 74px;
-  padding: 1px;
-  margin-left: 6px;
-  margin-right: -2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  font-weight:bold;
-  text-align:center;
-  line-height:100%;
-}
-*/
