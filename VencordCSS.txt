@@ -372,6 +372,11 @@ nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
 /* Center buttons */
 #app-mount div[class*=mounted] div[class*=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
 #app-mount div[class*=mounted] div[class*=body] div[class*=activityStreamPreview]{top:4px;position:relative}
+/* Stream channel is full */
+#app-mount div[class*=mounted]:not(:has(div[class*=previewHover])):before{content:"No Access";left:calc(50% - 45px);background:var(--discordRed);box-shadow:0 0 50px -5px var(--discordRed)}
+#app-mount div[class*=mounted]:not(:has(div[class*=previewHover])) > div[class*=streamPreviewWrapper] > div:before{border-image:linear-gradient(to bottom,var(--discordRed), transparent) 1}
+#app-mount div[class*=mounted]:not(:has(div[class*=previewHover])):hover{box-shadow:0 0 50px -10px var(--discordRed)}
+
 
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
