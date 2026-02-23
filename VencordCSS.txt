@@ -349,55 +349,55 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 
 /* -------------------------------------------------- Fixes, Major adjustments, and Changes -------------------------------------------------- */
 /* VC status is now on the left */
-nav ul li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
+nav li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
 
 /* Stream Previews - now larger on :hover */
 /* Removals */
-#app-mount div[class*=mounted] div[class*=body] button:has([class*=buttonChild]),
-#app-mount div[class*=mounted] div[class*=body] div[class*=protip]{display:none!important}
-#app-mount div[class*=mount] div[class*=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
+div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] button:has([class^=buttonChild]),
+div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] div[class^=protip]{display:none!important}
+div[class^=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
 /* The Meat -- top to bottom strutcute of the Stream Preview system #1 -> #8 */
-#app-mount div[id*=popout]:has([class*=streamPreview]):not(:has([class*=emptyPreviewContainer])){padding-left:16px;margin-top:-125px} /* MAIN popout #1 */
-#app-mount div[id*=popout]:has([class*=emptyPreviewContainer]){padding-left:16px;margin-top:-60px} /* same but stream "hasn't started" */
-/* #app-mount div[class*=didRender]{} /* popout > "didRender" #2 */
-#app-mount div[class*=mounted]:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
-#app-mount div[class*=mounted]{padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
-#app-mount div[class*=mounted]:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
-/* #app-mount div[class*=mounted] > div[class*=streamPreviewWrapper]{} /* streamPreviewWrapper #4 */
-#app-mount div[class*=mounted] > div[class*=streamPreviewWrapper] > div{width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
-#app-mount div[class*=mounted] > div[class*=streamPreviewWrapper] > div:before{left:-2px;top:-3px;border:2px solid;border-top-width:3px;border-image:linear-gradient(to bottom,var(--discordGreen), transparent) 1;position:absolute;content:"";height:100%;width:100%} /* border around stream */
-#app-mount div[class*=mounted] div[class*=previewContainer]:not(:has([class*=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
-/* #app-mount div[class*=mounted] div[class*=previewImage]{} /* previewImage #7 */
-#app-mount div[class*=mounted] img{display:block} /* stream image #8 */
+div[id^=popout]:has([class^=streamPreview]){padding-left:16px;margin-top:-125px} /* MAIN popout #1 */
+div[id^=popout]:has([class^=emptyPreviewContainer]){padding-left:16px;margin-top:-60px} /* same but stream "hasn't started" */
+div[id^=popout]:has([class^=streamPreview]) > div{transform:none!important} /* #2 */
+div[id^=popout]:has([class^=streamPreview]) > div > div:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
+div[id^=popout]:has([class^=streamPreview]) > div > div{padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
+div[id^=popout]:has([class^=streamPreview]) > div > div:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
+/* div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper]{} /* streamPreviewWrapper #4 */
+div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div{width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
+div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div:before{left:-2px;top:-3px;border:2px solid;border-top-width:3px;border-image:linear-gradient(to bottom,var(--discordGreen), transparent) 1;position:absolute;content:"";height:100%;width:100%} /* border around stream */
+div[class^=previewContainer]:not(:has([class^=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
+/* div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=previewImage]{} /* previewImage #7 */
+div[id^=popout]:has([class^=streamPreview]) > div > div img{display:block} /* stream image #8 */
 /* Center buttons */
-#app-mount div[class*=mounted] div[class*=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
-#app-mount div[class*=mounted] div[class*=body] div[class*=activityStreamPreview]{top:4px;position:relative}
+div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
+div[class^=activityStreamPreview]{top:5px;position:relative}
 /* Stream channel -- No Acess */
-#app-mount div[class*=mounted]:not(:has(div[class*=previewHover])):before{content:"No Access";left:calc(50% - 45px);background:var(--discordRed);box-shadow:0 0 50px -5px var(--discordRed)}
-#app-mount div[class*=mounted]:not(:has(div[class*=previewHover])) > div[class*=streamPreviewWrapper] > div:before{border-image:linear-gradient(to bottom,var(--discordRed), transparent) 1}
-#app-mount div[class*=mounted]:not(:has(div[class*=previewHover])):hover{box-shadow:0 0 50px -10px var(--discordRed)}
+div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])):before{content:"No Access";left:calc(50% - 45px);background:var(--discordRed);box-shadow:0 0 50px -5px var(--discordRed)}
+div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])) > div[class^=streamPreviewWrapper] > div:before{border-image:linear-gradient(to bottom,var(--discordRed), transparent) 1}
+div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])):hover{box-shadow:0 0 50px -10px var(--discordRed)}
 
 
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
-#app-mount div[class*=layerContainer] div[class*=layer]:has([aria-label="Quick Switcher"]){justify-content:start;padding:0}
-#app-mount div[data-dialog=modal] div[class*=outerContainer]:has([aria-label="Quick Switcher"]){height:100%}
-#app-mount div[aria-label="Quick Switcher"] > div > div, #app-mount div[class*=quickswitcher]{max-height:100%!important;width:100%!important;max-width:1000px} /* sizing */
+div[class*=layerContainer] div[class*=layer]:has([aria-label="Quick Switcher"]){justify-content:start;padding:0}
+div[data-dialog=modal] div[class*=outerContainer]:has([aria-label="Quick Switcher"]){height:100%}
+div[aria-label="Quick Switcher"] > div > div, div[class*=quickswitcher]{max-height:100%!important;width:100%!important;max-width:1000px} /* sizing */
 /* Lift result limits */
-#app-mount div[class*=resultsArea]{height:fit-content}
-#app-mount div[class*=resultsArea] > div, #app-mount div[class*=resultsArea] div[role*=listbox]{max-height:calc(100vh - 230px);height:fit-content;margin-right:0;transition:height .25s;will-change:height}
+div[class*=resultsArea]{height:fit-content}
+div[class*=resultsArea] > div, div[class*=resultsArea] div[role*=listbox]{max-height:calc(100vh - 230px);height:fit-content;margin-right:0;transition:height .25s;will-change:height}
 /* Search box */
 body input[aria-label="Quick Switcher"]{border:2px solid #dc143c98}
 /* result:hover */
-#app-mount div[class*=resultsArea] div[aria-selected=true]{background:unset} /* prevent lingering coloring */
-#app-mount div[class*=resultsArea] div[class*=result]:hover{background:#dc143c98;transition:none!important} /* ctrl-k hover color */
-#app-mount div[class*=resultsArea] div[class*=result]:hover div, div[class*=resultsArea] div[class*=result]:hover div svg{font-weight:bolder;color:white}
+div[class*=resultsArea] div[aria-selected=true]{background:unset} /* prevent lingering coloring */
+div[class*=resultsArea] div[class*=result]:hover{background:#dc143c98;transition:none!important} /* ctrl-k hover color */
+div[class*=resultsArea] div[class*=result]:hover div, div[class*=resultsArea] div[class*=result]:hover div svg{font-weight:bolder;color:white}
 /* Rightside -> Allow larger result names */
-#app-mount div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px;background-color:var(--sidebarColor);opacity:100%;padding-left:10px}
-#app-mount div[aria-label="Quick Switcher"] div[class*=result] > div > div > div:hover div[class*=misc]{background-color:firebrick}
+div[aria-label="Quick Switcher"] div[class*=misc]{max-width:fit-content!important;right:0;top:0;position:absolute;padding-right:10px;background-color:var(--sidebarColor);opacity:100%;padding-left:10px}
+div[aria-label="Quick Switcher"] div[class*=result] > div > div > div:hover div[class*=misc]{background-color:firebrick}
 /* Protip */
-#app-mount div[aria-label="Quick Switcher"] div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
-#app-mount div[aria-label="Quick Switcher"] div[class*=protip] a{display:none}
+div[aria-label="Quick Switcher"] div[class*=protip]{position:absolute;top:-40px;left:30px;background-color:var(--sidebarColor);border-radius:5px;padding:8px;padding-bottom:10px} /* move protip out of the box */
+div[aria-label="Quick Switcher"] div[class*=protip] a{display:none}
 
 /* Message Logger edit color */
 .messagelogger-edited, .messagelogger-edited a{color:var(--messageLoggerEditColor)!important}
