@@ -1,10 +1,3 @@
-/* https://github.com/AushevAhmad/awesome-css#installing-modules */
-/* @import url("https://aushevahmad.github.io/awesome-css/modules/channeltweaks.css"); */
-/* @import url("https://aushevahmad.github.io/awesome-css/modules/hiddenthreads.css"); */
-/* @import url("https://aushevahmad.github.io/awesome-css/modules/compressbotmsgs.css"); */
-/* @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css"); */
-
-
 /* Variable listings for the colors I use */
 :root{                                          /* These mostly represent the 3 major rings of colors */
   --borderColor:#292b43;                      /* Outermost #292b43 */
@@ -71,6 +64,7 @@ div[class*=hoverBarButton][aria-label*="Click to"], div[class*=buttonsInner] div
 ul[aria-label="Direct Messages"] div[class*=container]:has([aria-label*=Activity]), /* Resolve Mod 2factor banner size reducer*/
 ul[aria-label*="Direct Messages"] div[class*=sectionDiv], /* The section dividers for things that we've already deleted */
 /* Members list */
+aside:has(div[class^=vc-uvs-speaker]) div[class^=subText]:has(div[aria-label*=Voice]) span, aside:has(div[class^=vc-uvs-speaker]) div[class^=subText]:has(div[aria-label*=Voice]) div[class*=dot], /* Remove "user in voice" thing, since the addon is far better */
 div[role=list][aria-label*=Members] > h3:has(div[class*=toggleExpand]),
 div[class*=container] > aside div[role=listitem]:has(div[class*=openOnHover]), /* Member's list Activities themselves */
 /* Top bar */
@@ -349,30 +343,33 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 
 /* -------------------------------------------------- Fixes, Major adjustments, and Changes -------------------------------------------------- */
 /* VC status is now on the left */
-nav li div[class*=iconGroup]:has(img){position:absolute;left:-19px}
+nav li div[class*=iconGroup]:has(img, svg[class^=gameIcon]){position:absolute;left:-19px}
 
 /* Stream Previews - now larger on :hover */
 /* Removals */
 div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] button:has([class^=buttonChild]),
-div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] div[class^=protip]{display:none!important}
+div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] div[class^=protip],
+div[id^=popout] div[class^=hangStatusContent],
+div[class^=streamPreview] div[class^=streamHeaderVoiceUserActivities]{display:none!important}
 div[class^=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
 /* The Meat -- top to bottom strutcute of the Stream Preview system #1 -> #8 */
-div[id^=popout]:has([class^=streamPreview]){padding-left:16px;margin-top:-125px} /* MAIN popout #1 */
-div[id^=popout]:has([class^=emptyPreviewContainer]){padding-left:16px;margin-top:-60px} /* same but stream "hasn't started" */
-div[id^=popout]:has([class^=streamPreview]) > div{transform:none!important} /* #2 */
-div[id^=popout]:has([class^=streamPreview]) > div > div:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
-div[id^=popout]:has([class^=streamPreview]) > div > div{padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
+div[id^=popout]:has([class^=streamPreview]){padding-left:16px;margin-top:-125px} /* MAIN popout #1 - ;margin-top:-125px */
+div[id*=popout]:has([class*=emptyPreviewContainer]){padding-left:16px;margin-top:-60px} /* same but stream "hasn't started" */
+div[id^=popout]:has([class^=streamPreview]) > div{transform:none!important} /* animator #2 */
+div[id^=popout]:has([class^=streamPreview]) > div:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
+div[id^=popout]:has([class^=streamPreview]) div[class^=container]{overflow:unset!important;width:fit-content;padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
 div[id^=popout]:has([class^=streamPreview]) > div > div:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
-/* div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper]{} /* streamPreviewWrapper #4 */
-div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div{width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
-div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div:before{left:-2px;top:-3px;border:2px solid;border-top-width:3px;border-image:linear-gradient(to bottom,var(--discordGreen), transparent) 1;position:absolute;content:"";height:100%;width:100%} /* border around stream */
-div[class^=previewContainer]:not(:has([class^=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
+div[id^=popout]:has([class^=streamPreview]) div[class^=streamPreviewWrapper]{padding:0;border:0} /* streamPreviewWrapper #4 */
+div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div:not([class^=hangStatusContent]){width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
+div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div:not([class^=hangStatusContent]):before{left:-2px;top:-3px;border:2px solid;border-top-width:3px;border-image:linear-gradient(to bottom,var(--discordGreen), transparent) 1;position:absolute;content:"";height:100%;width:100%} /* border around stream */
+div[class^=previewContainerUserActivity]:not(:has([class^=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
 /* div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=previewImage]{} /* previewImage #7 */
-div[id^=popout]:has([class^=streamPreview]) > div > div img{display:block} /* stream image #8 */
+div[id^=popout]:not(:has([class^=emptyPreviewContainer])) div[class^=previewContainer] img{display:block;max-width:512px;min-height:288px;background:black} /* stream image #8 */
+
 /* Center buttons */
 div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
 div[class^=activityStreamPreview]{top:5px;position:relative}
-/* Stream channel -- No Acess */
+/* Stream channel -- No Access */
 div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])):before{content:"No Access";left:calc(50% - 45px);background:var(--discordRed);box-shadow:0 0 50px -5px var(--discordRed)}
 div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])) > div[class^=streamPreviewWrapper] > div:before{border-image:linear-gradient(to bottom,var(--discordRed), transparent) 1}
 div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])):hover{box-shadow:0 0 50px -10px var(--discordRed)}
