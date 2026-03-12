@@ -345,36 +345,6 @@ li div[class*="message"][data-list-item-id*="chat-messages"]:hover:before
 /* VC status is now on the left */
 nav li div[class*=iconGroup]:has(img, svg[class^=gameIcon]){position:absolute;left:-19px}
 
-/* Stream Previews - now larger on :hover */
-/* Removals */
-div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] button:has([class^=buttonChild]),
-div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body] div[class^=protip],
-div[id^=popout] div[class^=hangStatusContent],
-div[class^=streamPreview] div[class^=streamHeaderVoiceUserActivities]{display:none!important}
-div[class^=previewHover]{transition:none;opacity:0%!important} /* hide default "watch stream" overlay */
-/* The Meat -- top to bottom strutcute of the Stream Preview system #1 -> #8 */
-div[id^=popout]:has([class^=streamPreview]){padding-left:16px;margin-top:-125px} /* MAIN popout #1 - ;margin-top:-125px */
-div[id*=popout]:has([class*=emptyPreviewContainer]){padding-left:16px;margin-top:-60px} /* same but stream "hasn't started" */
-div[id^=popout]:has([class^=streamPreview]) > div{transform:none!important} /* animator #2 */
-div[id^=popout]:has([class^=streamPreview]) > div:before{content:"Watch Stream";color:white;text-shadow:1px 1px 20px black;top:-33px;position:absolute;left:calc(50% - 53px);background:var(--discordGreen);padding:8px;border:1px solid transparent;box-shadow:0 0 50px -5px var(--discordGreen);border-top-left-radius:5px;border-top-right-radius:5px;pointer-events:none}
-div[id^=popout]:has([class^=streamPreview]) div[class^=container]{overflow:unset!important;width:fit-content;padding:0;transition:box-shadow .15s!important;box-shadow:0 0 50px 0 black;will-change:height,width,box-shadow} /* streamPreviewWrapper #3 */
-div[id^=popout]:has([class^=streamPreview]) > div > div:hover{box-shadow:0 0 50px -10px var(--discordGreen)}
-div[id^=popout]:has([class^=streamPreview]) div[class^=streamPreviewWrapper]{padding:0;border:0} /* streamPreviewWrapper #4 */
-div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div:not([class^=hangStatusContent]){width:100%;min-width:252px;border-radius:0;box-shadow:none} /* streamPreview #5  */
-div[id^=popout]:has([class^=streamPreview]) > div > div > div[class^=streamPreviewWrapper] > div:not([class^=hangStatusContent]):before{left:-2px;top:-3px;border:2px solid;border-top-width:3px;border-image:linear-gradient(to bottom,var(--discordGreen), transparent) 1;position:absolute;content:"";height:100%;width:100%} /* border around stream */
-div[class^=previewContainerUserActivity]:not(:has([class^=emptyPreviewContainer])){height:100%} /* previewContainer #6 */
-/* div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=previewImage]{} /* previewImage #7 */
-div[id^=popout]:not(:has([class^=emptyPreviewContainer])) div[class^=previewContainer] img{display:block;max-width:512px;min-height:288px;background:black} /* stream image #8 */
-
-/* Center buttons */
-div[id^=popout]:has([class^=streamPreview]) > div > div div[class^=body]{width:fit-content;margin-left:auto;margin-right:auto;padding:0}
-div[class^=activityStreamPreview]{top:5px;position:relative}
-/* Stream channel -- No Access */
-div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])):before{content:"No Access";left:calc(50% - 45px);background:var(--discordRed);box-shadow:0 0 50px -5px var(--discordRed)}
-div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])) > div[class^=streamPreviewWrapper] > div:before{border-image:linear-gradient(to bottom,var(--discordRed), transparent) 1}
-div[id^=popout]:has([class^=streamPreview]) > div > div:not(:has(div[class^=previewHover])):hover{box-shadow:0 0 50px -10px var(--discordRed)}
-
-
 /* Quick switcher - now larger */
 /* Align to top & increase total size -- :has because there are other Modals */
 div[class*=layerContainer] div[class*=layer]:has([aria-label="Quick Switcher"]){justify-content:start;padding:0}
